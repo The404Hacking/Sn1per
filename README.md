@@ -79,7 +79,7 @@ sniper update
 * **UPDATE:** Checks for updates and upgrades all components used by sniper.
 
 ## SAMPLE REPORT:
-https://gist.github.com/1N3/8214ec2da2c91691bcbc
+https://github.com/The404Hacking/Sn1per/blob/master/Sn1per-v1.5-report
 
 ## Download and Clone
 > Download: [https://github.com/The404Hacking/Sn1per/archive/master.zip](https://github.com/The404Hacking/Sn1per/archive/master.zip)
