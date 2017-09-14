@@ -39,7 +39,7 @@ Sn1per is an automated scanner that can be used during a penetration test to enu
 ## DOCKER INSTALL:
 
 Docker Install:
-https://github.com/menzow/sn1per-docker
+https://github.com/The404Hacking/sn1per-docker
 
 Docker Build:
 https://hub.docker.com/r/menzo/sn1per-docker/builds/bqez3h7hwfun4odgd2axvn4/
@@ -81,3 +81,19 @@ sniper update
 ## SAMPLE REPORT:
 https://gist.github.com/1N3/8214ec2da2c91691bcbc
 
+## Download and Clone
+> Download: [https://github.com/The404Hacking/Sn1per/archive/master.zip](https://github.com/The404Hacking/Sn1per/archive/master.zip)
+
+> Clone: git clone [https://github.com/The404Hacking/Sn1per.git](https://github.com/The404Hacking/Sn1per.git)
+
+## The404Hacking | Digital UnderGround Team
+[The404Hacking](https://T.me/The404Hacking)
+
+## Follow us !
+[The404Hacking](https://T.me/The404Hacking) - [The404Cracking](https://T.me/The404Cracking)
+
+[Instagram](https://instagram.com/The404Hacking) - [GitHub](https://github.com/The404Hacking)
+
+[YouTube](http://yon.ir/youtube404) - [Aparat](http://www.aparat.com/The404Hacking)
+
+[The404Hacking.BlogSky.Com](http://the404hacking.blogsky.com)
