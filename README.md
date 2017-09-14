@@ -46,8 +46,8 @@ https://hub.docker.com/r/menzo/sn1per-docker/builds/bqez3h7hwfun4odgd2axvn4/
 
 Example usage:
 ```
-$ docker pull menzo/sn1per-docker
-$ docker run --rm -ti menzo/sn1per-docker sniper menzo.io
+$ docker pull The404Hacking/sn1per-docker
+$ docker run --rm -ti The404Hacking/sn1per-docker sniper menzo.io
 ```
 
 ## USAGE:
